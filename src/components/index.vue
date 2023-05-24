@@ -8,7 +8,14 @@
   </div>
 </template>
 
-<script setup></script>
+<script lang="ts" setup>
+import { deviceCol } from "@/plugin/models";
+import { Itltle } from "@/plugin/tabletitle";
+import { ref } from "vue";
+let title = ref<Itltle>(null);
+// title.value = deviceCol;
+console.log(deviceCol, title);
+</script>
 
 <style lang="less" scoped>
 .main {
@@ -18,9 +25,6 @@
   display: flex;
 }
 .le {
-
-
-  
   width: 140px;
   height: 100%;
   border: 1px solid #ccc;
