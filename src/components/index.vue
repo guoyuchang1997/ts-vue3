@@ -9,12 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import { deviceCol } from "@/plugin/models";
-import { Itltle } from "@/plugin/tabletitle";
+import { deviceCol ,Itltle,customerDeviceCol} from "@/plugin/tabletitle";
 import { ref } from "vue";
-let title = ref<Itltle>(null);
-// title.value = deviceCol;
-console.log(deviceCol, title);
+let title = ref<Itltle[]>([]);
+  title.value = customerDeviceCol.slice(),
+  console.log(deviceCol, title);
+
 </script>
 
 <style lang="less" scoped>
