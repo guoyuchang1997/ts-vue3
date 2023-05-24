@@ -18,6 +18,9 @@
   display: flex;
 }
 .le {
+
+
+  
   width: 140px;
   height: 100%;
   border: 1px solid #ccc;
