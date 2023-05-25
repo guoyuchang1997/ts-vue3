@@ -17,10 +17,11 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
+import {Itltle} from '@/plugin/tabletitle'
 import Td from "~/table/td.vue";
 const title = inject("title");
-const devlist = inject("devlist");
-const omwlist = inject("omwlist");
+const devlist = inject<Itltle[]>("devlist");
+//const omwlist = inject("omwlist");
 console.log(title);
 </script>
 

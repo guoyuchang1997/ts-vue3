@@ -4,7 +4,12 @@
     <div class="ri">
       <div class="ritop"></div>
       <div class="rimain">
+        <div class="devow">
+            <span @click="num = 1">自由</span>
+            <span @click="num = 0">平台</span>
+          </div>
         <div class="title">
+        
           <div
             :style="{ width: item.width }"
             class="to ellipsis"
@@ -23,8 +28,9 @@
 <script lang="ts" setup>
 import { deviceCol, Itltles, Itltle, customerDeviceCol } from "@/plugin/tabletitle";
 import Tabletd from "~/table/tr.vue";
-import { ref, provide } from "vue";
+import { ref, provide ,watch} from "vue";
 let title = ref<Itltles[]>([]);
+let num = ref<Number>(1)
 title.value = [
   {
     id: 1512,
@@ -187,10 +193,20 @@ title.value = [
   },
 ];
 provide("title", title);
-provide("devlist", deviceCol);
 provide("omwlist", customerDeviceCol);
 let navtop = ref<Itltle[]>([]);
+provide("devlist", navtop);
 navtop.value = [...deviceCol];
+const change = () => {
+  
+  if (num.value === 1) {
+    console.log('执行了');
+    navtop.value = [...customerDeviceCol]
+  } else {
+    navtop.value = [...deviceCol];
+  }
+}
+watch(num,change)
 </script>
 
 <style lang="less" scoped>
@@ -205,6 +221,15 @@ navtop.value = [...deviceCol];
   height: 100%;
   border: 1px solid #ccc;
   margin-right: 10px;
+}
+.devow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  >span{
+    cursor: pointer;
+    margin-left: 100px;
+  }
 }
 .ri {
   width: calc(100vw - 170px);
