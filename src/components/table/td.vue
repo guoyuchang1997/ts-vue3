@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="[dpl]">
     {{ data[code] }}
   </div>
 </template>
@@ -8,7 +8,12 @@
 const props = defineProps({
   data: Object,
   code: String,
+  dpl: String,
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="less" scoped>
+.device_name{
+  color: red;
+}
+</style>

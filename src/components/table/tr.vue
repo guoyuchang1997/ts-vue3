@@ -7,6 +7,7 @@
         :key="index"
         :data="item"
         :code="va.code"
+        :dpl="va.tpl"
         :style="{ width: va.width }"
       
       />
