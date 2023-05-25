@@ -17,7 +17,29 @@ export interface Itltle {
   /**
    * 渲染类型
    */
-  tpl: string;
+  tpl?: string;
+}
+export interface Itltles {
+  /**
+   * 设备id
+   */
+  id: Number | string;
+  /**
+   * 标题
+   */
+  name: string;
+  /**
+   * 宽度
+   */
+  width: string;
+  /**
+   * 代理名称
+   */
+  code: string;
+  /**
+   * 渲染类型
+   */
+  tpl?: string;
 }
 export const information = [
   {
@@ -247,7 +269,6 @@ export const deviceCol: Itltle[] = [
     name: "操作",
     width: "180px",
     code: "id",
-    type: "action",
     tpl: "action",
   },
 ];
@@ -339,7 +360,6 @@ export const addcustomer = [
     code: "device_name",
   },
 ];
-
 
 export const account = [
   {
