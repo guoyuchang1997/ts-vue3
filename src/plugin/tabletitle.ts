@@ -19,6 +19,8 @@ export interface Itltle {
    */
   tpl?: string;
 }
+
+
 export interface Itltles {
   /**
    * 设备id
