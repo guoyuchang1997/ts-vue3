@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Table from "~/index.vue";
+import Table from "~/table/index.vue";
 </script>
 
 <template>

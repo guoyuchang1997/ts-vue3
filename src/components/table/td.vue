@@ -1,7 +1,14 @@
 <template>
-  <div>toubu</div>
+  <div>
+    {{ data[code] }}
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  data: Object,
+  code: String,
+});
+</script>
 
 <style lang="scss" scoped></style>
