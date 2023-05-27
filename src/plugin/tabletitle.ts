@@ -21,7 +21,12 @@ export interface Itltle {
    */
   tpl?: string;
 }
-
+export interface Idev extends Itltle {
+  /**
+   * 这是头部
+   */
+  title: string
+}
 export interface Itltles {
   /**
    * 设备id
@@ -193,12 +198,13 @@ export const roleCol = [
 ];
 
 // 代理列表模型(平台代理)
-export const deviceCol: Itltle[] = [
+export const deviceCol = [
   {
     name: "代理名称",
     width: "10%",
     code: "device_name",
     tpl: "device_name",
+    title: '123213'
   },
   {
     name: "IP",

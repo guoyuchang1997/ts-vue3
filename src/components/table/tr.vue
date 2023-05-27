@@ -6,6 +6,7 @@
         v-for="(va, index) in devlist"
         :key="index"
         :data="item"
+        :title="va.title"
         :code="va.code"
         :dpl="va.tpl"
         :style="{ width: va.width }"
@@ -17,10 +18,10 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import {Itltle} from '@/plugin/tabletitle'
+import {Idev} from '@/plugin/tabletitle'
 import Td from "~/table/td.vue";
 const title = inject("title");
-const devlist = inject<Itltle[]>("devlist");
+const devlist = inject<Idev[]>("devlist");
 //const omwlist = inject("omwlist");
 console.log(title);
 </script>

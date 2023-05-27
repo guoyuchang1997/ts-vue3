@@ -8,8 +8,7 @@
             <span @click="num = 1">自由</span>
             <span @click="num = 0">平台</span>
           </div>
-        <div class="title">
-        
+        <div class="title"> 
           <div
             :style="{ width: item.width }"
             class="to ellipsis"
