@@ -74,6 +74,17 @@ type Itye = {
 type Istype = Itye & {
   y: number
 }
+/**
+ * interface继承
+ */
+export interface ISData {
+  ti: string;
+  icon: string;
+}
+export interface IIData extends ISData {
+  ti2: string;
+  info: string;
+}
 export interface Itltles {
   /**
    * 设备id
