@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import { deviceCol, Itltles, Itltle, customerDeviceCol } from "@/plugin/tabletitle";
 import Tabletd from "~/table/tr.vue";
-import { ref, provide ,watch} from "vue";
+import { ref, provide ,watch, HtmlHTMLAttributes} from "vue";
 let title = ref<Itltles[]>([]);
 let num = ref<Number>(1)
 title.value = [
@@ -195,6 +195,8 @@ provide("title", title);
 provide("omwlist", customerDeviceCol);
 let navtop = ref<Itltle[]>([]);
 provide("devlist", navtop);
+const btn = document.querySelector('a') as HTMLAnchorElement
+btn.href
 navtop.value = [...deviceCol];
 const change = () => {
   

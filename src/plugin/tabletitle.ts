@@ -1,5 +1,40 @@
 import { type } from "os";
 
+
+type Itener<data> = {
+  name: string
+  sex: number
+  data: data
+}
+/**
+ * 接口定义泛型
+ */
+type Iters = Itener<{ message: string, goodsname: string }>
+type int = {
+  message: string
+  goodsname: string
+}
+type Iterass = Itener<int>
+
+/**
+ * 泛型使用
+ */
+type Iter<t> = {
+  obj(): t
+  arr?(): void | t
+}
+
+let objct: Iter<string> = {
+  obj() {
+    return '1'
+  },
+  arr() {
+  }
+
+}
+
+
+
 /**
  * 平台设备
  */
@@ -21,11 +56,23 @@ export interface Itltle {
    */
   tpl?: string;
 }
+/**
+ * export声明的类型使用extends进行继承
+ */
 export interface Idev extends Itltle {
   /**
    * 这是头部
    */
   title: string
+}
+/**
+ * type声明的类型使用&进行继承
+ */
+type Itye = {
+  x: number
+}
+type Istype = Itye & {
+  y: number
 }
 export interface Itltles {
   /**
