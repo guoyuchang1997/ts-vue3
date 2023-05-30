@@ -1,11 +1,8 @@
 <script setup lang="ts">
-// import Table from "~/table/index.vue";
-import Table from "~/dev/index.vue";
 </script>
 
 <template>
-  <Table />
+  <RouterView></RouterView>
 </template>
 
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>
