@@ -1,10 +1,23 @@
 <template>
-  <div class="home">
-    <el-button class="fs-lg"><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button>
-  </div>
+  <transition name="fade">
+    <div ref="home" class="home" :class="{ istoggle: shrink }">
+      <el-button class="fs-lg"><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button>
+      <div class="toggle">
+        <i class="iconfont icon-shouhui fs-sm pointer" @click="toggle"></i>
+      </div>
+    </div>
+  </transition>
 </template>
 
-<script setup lang="ts" name="home"></script>
+<script setup lang="ts" name="home">
+/**
+ *  宽度切换
+ */
+let shrink = ref<Boolean>(false);
+const toggle = () => {
+  shrink.value = !shrink.value;
+};
+</script>
 
 <style scoped lang="less">
 .home {
@@ -25,10 +38,17 @@
     );
     border-radius: 12px 12px 12px 12px;
     color: #fff;
-    i{
+    i {
       padding-right: 5px;
       padding-bottom: 3px;
     }
   }
+  .toggle {
+    text-align: end;
+    padding-right: 12px;
+  }
+}
+.istoggle {
+  width: 70px;
 }
 </style>

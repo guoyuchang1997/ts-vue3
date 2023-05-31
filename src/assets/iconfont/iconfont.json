@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "35778847",
+      "name": "bangzhu (1)",
+      "font_class": "a-bangzhu1",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "35778848",
+      "name": "shouhui (1)",
+      "font_class": "a-shouhui1",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "35778849",
+      "name": "shouhui",
+      "font_class": "shouhui",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "35778850",
+      "name": "shezhi (1)",
+      "font_class": "a-shezhi1",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
       "icon_id": "323769",
       "name": "圆圈加号",
       "font_class": "yuanquanjiahao",
