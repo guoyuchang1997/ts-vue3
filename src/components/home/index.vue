@@ -11,7 +11,7 @@
 <script setup lang="ts" name="home">
 // import { storeToRefs } from 'pinia'
 // const { count, double } = storeToRefs(counter)
-const { counter,user } = useStore();
+const { counter, user } = useStore();
 import useStore from "@/store/index.js";
 const api = inject<any>("$api");
 /**
