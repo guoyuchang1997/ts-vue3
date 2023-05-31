@@ -20,11 +20,9 @@ const api = inject<any>("$api");
  *  数量
  */
 const num = ref(123);
-console.log(num.value, "这是ref");
 
 onMounted(async () => {
   const res = await api.getPlatform();
-  console.log(res);
 });
 </script>
 
