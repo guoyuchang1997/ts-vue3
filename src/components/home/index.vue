@@ -1,24 +1,34 @@
 <template>
-  <div class="btn">
-    <div class="color fs-xs">我是红色</div>
-    <el-button round>Round</el-button>
-    <el-button type="primary" round>Primary</el-button>
-    <el-button type="success" round>Success</el-button>
-    <el-button type="info" round>Info</el-button>
-    <el-button type="warning" round>Warning</el-button>
-    <el-button type="danger" round>Danger</el-button>
-    <router-link to="login">点击去登录</router-link>
+  <div class="home">
+    <el-button class="fs-lg"><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button>
   </div>
 </template>
 
-<script setup lang="ts" name="home">
-</script>
+<script setup lang="ts" name="home"></script>
 
 <style scoped lang="less">
-.btn {
-  color: pink;
-  .color {
-    color: @van-gray-5;
+.home {
+  width: 250px;
+  height: calc(100vh - 10px);
+  background: #ffffff;
+  border-radius: 0px 0px 0px 0px;
+  margin: 10px 10px 0 0;
+  :deep(.el-button) {
+    margin: 18px 20px 12px 10px;
+    width: 220px;
+    height: 54px;
+    background: linear-gradient(
+      98deg,
+      #3b45fc 24%,
+      rgba(11, 23, 252, 0.7) 69%,
+      rgba(155, 78, 255, 0.95) 100%
+    );
+    border-radius: 12px 12px 12px 12px;
+    color: #fff;
+    i{
+      padding-right: 5px;
+      padding-bottom: 3px;
+    }
   }
 }
 </style>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory,createWebHistory} from "vue-router";
+import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import Layout from "@/views/home.vue";
 const router = createRouter({
   history: createWebHistory(),
@@ -7,6 +7,16 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: Layout,
+      children: [
+        {
+          path: "/",
+          name: "accoun",
+          component: () => import("~/account/accountinfo.vue"),
+          meta: {
+            menu: "accoun",
+          },
+        },
+      ],
     },
     {
       path: "/login",
