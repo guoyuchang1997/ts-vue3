@@ -4,6 +4,7 @@ declare global {
   const onMounted: typeof import("vue")["onMounted"];
   const reactive: typeof import("vue")["reactive"];
   const computed: typeof import("vue")["computed"];
+  const inject: typeof import("vue")["inject"];
   const createApp: typeof import("vue")["createApp"];
   const watch: typeof import("vue")["watch"];
   const customRef: typeof import("vue")["customRef"];

@@ -1,20 +1,22 @@
 <template>
   <div class="btn">
     less
-    <div class="color">我是红色</div>
+    <div class="color fs-xs">我是红色</div>
     <router-link to="login">点击去登录</router-link>
   </div>
 </template>
 
 <script setup lang="ts" name="home">
+const api = inject<any>("$api");
 /**
  *  数量
  */
 const num = ref(123);
 console.log(num.value, "这是ref");
 
-onMounted(() => {
-  console.log(123);
+onMounted(async () => {
+  const res = await api.getPlatform();
+  console.log(res);
 });
 </script>
 
@@ -22,7 +24,7 @@ onMounted(() => {
 .btn {
   color: pink;
   .color {
-    color: red;
+    color: @van-gray-5;
   }
 }
 </style>
