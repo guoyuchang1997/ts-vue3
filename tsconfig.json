@@ -13,7 +13,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "types": ["vite-plugin-vue-setup-extend", "vite/client", "vue-router"],
+    "types": [
+      "vite-plugin-vue-setup-extend",
+      "unplugin-auto-import/vite",
+      "vite/client",
+      "vue-router"
+    ],
 
     /* Linting */
     "strict": true,
