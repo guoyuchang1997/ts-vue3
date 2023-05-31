@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import Layout from "~/home/index.vue";
+import { createRouter, createWebHashHistory,createWebHistory} from "vue-router";
+import Layout from "@/views/home.vue";
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: "/",
