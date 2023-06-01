@@ -1,21 +1,29 @@
 <template>
-   <div class="maxlist">
-    <el-button class="fs-lg unfold"><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button>
-      <div class="toggle">
-        <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
-      </div>
-   </div>
+  <div class="maxlist">
+    <el-button class="fs-lg unfold"
+      ><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button
+    >
+    <div class="toggle">
+      <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
+    </div>
+    <div class="Down">
+      <Down>
+          
+      </Down>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
+import Down from "~/home/down.vue";
 const emit = defineEmits<{
-    (e: 'changelistwidht'): void
-}>()
+  (e: "changelistwidht"): void;
+}>();
 </script>
 
 <style scoped lang="less">
-  .unfold{
-    &.el-button{
+.unfold {
+  &.el-button {
     margin: 18px 20px 12px 10px;
     width: 220px;
     height: 54px;
@@ -31,14 +39,17 @@ const emit = defineEmits<{
       padding-right: 5px;
       padding-bottom: 3px;
     }
-    }
   }
+}
 .toggle {
-    text-align: end;
-    padding-right: 12px;
-    
-  }
-  .maxlist{
-    margin-bottom: 100vh;
-  }
+  text-align: end;
+  padding-right: 12px;
+}
+.maxlist {
+  margin-bottom: 100vh;
+}
+.Down{
+  margin: 10px 20px 0 10px;
+ 
+}
 </style>

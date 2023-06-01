@@ -4,10 +4,14 @@
       <div class="toggle">
         <i class="iconfont icon-a-shouhui1 fs-sm pointer" @click="emit('changelistwidht')"></i>
       </div>
+      <div class="down">
+          <Shrink />
+      </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import Shrink from '~/home/shrink.vue'
 const emit = defineEmits<{
     (e: 'changelistwidht'): void
 }>()

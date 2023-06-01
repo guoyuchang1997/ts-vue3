@@ -4,7 +4,7 @@
     <div class="rgmain">
       <hander />
       <div class="content">
-        <RouterView></RouterView>
+          <RouterView></RouterView>
       </div>
     </div>
   </div>

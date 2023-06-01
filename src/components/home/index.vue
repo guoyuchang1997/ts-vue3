@@ -1,7 +1,6 @@
 <template>
     <div ref="home" class="home" :class="{ istoggle: shrink }">
       <transition name="fade">
-        
         <Switchingmax  @changelistwidht="changelistwidht" v-if="!shrink">
       </Switchingmax> 
       </transition>
@@ -33,7 +32,7 @@ const changelistwidht = () => {
   border-radius: 0px 0px 0px 0px;
   margin: 10px 10px 0 0;
 
-  
+  overflow: hidden;
   
 }
 .istoggle {
@@ -45,7 +44,7 @@ const changelistwidht = () => {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 .fade-enter-from,
