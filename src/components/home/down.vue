@@ -1,7 +1,7 @@
 <template>
   <div class="down pointer" @click="emit('openoff')">
-    <i class="iconfont icon-CHANGYONG1 fs-xss"></i>
-    <div class="text fs-sm">常用</div>
+    <i class="iconfont fs-xss" :class="props.headline.headline"></i>
+    <div class="text fs-sm">{{ props.headline.title }}</div>
     <i
       class="iconfont icon-xialajiantou"
       :class="{ xialajiantou: isshwo, xialajiantous: !isshwo }"
@@ -10,12 +10,14 @@
   <div ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
     <div class="downlist pointer" v-for="(item, index) in props.titlelist" :key="index">
       <i class="iconfont fs-lg" :class="item.icon"></i>
-      <div class="text fs-sm">{{ item.title }}</div>
+      <div class="text fs-sm">{{ item.text }}</div>
+      <!-- 可以直接补充icon图标 -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Title ,Icon} from "~/home/title";
 // /**
 //  *  箭头翻转
 //  */
@@ -32,7 +34,13 @@ const emit = defineEmits(["openoff"]);
 /**
  * 元素高度
  */
-const height = ref(null);
+interface Height{
+  /**
+   * 高度
+   */
+  clientHeight:string
+}
+const height = ref<Height>();
 const listheight = ref({
   height: "",
 });
@@ -42,13 +50,23 @@ onMounted(() => {
   }
 });
 
-/**
- * 列表数据
- */
-const props = defineProps({
-  titlelist: Array,
-  isshwo: Boolean,
-});
+
+interface Iprops{
+  /**
+   * 列表
+   */
+  titlelist: Title[]
+   /**
+    * 展开
+    */
+  isshwo: Boolean
+    /**
+     * 列表标题
+     */
+     headline:Icon
+}
+const props = defineProps<Iprops>()
+
 </script>
 
 <style scoped lang="less">

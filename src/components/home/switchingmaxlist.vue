@@ -7,15 +7,15 @@
       <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
     </div>
     <div class="Down">
-      <Down :titlelist="titlelist" :isshwo="Commonly" @openoff="Commonlyoff" />
-      <Down :titlelist="applicationlist" @openoff="applicationoff" :isshwo="application" />
+      <Down :titlelist="titlelist" :headline="CommonlyTitle" :isshwo="Commonly" @openoff="Commonlyoff" />
+      <Down :titlelist="applicationlist" :headline="applicationTitle" @openoff="applicationoff" :isshwo="application" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Down from "~/home/down.vue";
-import { Title } from "~/home/title";
+import { Title ,Icon} from "~/home/title";
 /**
  * 展开缩放
  */
@@ -26,7 +26,7 @@ const emit = defineEmits<{
 /**
  * 常用列表
  */
-const Commonly = ref<Boolean>(false);
+const Commonly = ref<boolean>(false);
 const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
 };
@@ -35,18 +35,21 @@ const titlelist = ref<Title[]>([]);
 titlelist.value = [
   {
     icon: "icon-zhanghao",
-    title: "账号管理",
+    text: "账号管理",
   },
   {
     icon: "icon-a-ixintucom1",
-    title: "快速启动",
+    text: "快速启动",
   },
   {
     icon: "icon-a-huishou1",
-    title: "回收站",
+    text: "回收站",
   },
 ];
-
+const CommonlyTitle = ref<Icon>({
+  headline: 'icon-CHANGYONG1',
+  title:'常用'
+})
 /**
  * 应用
  */
@@ -54,23 +57,27 @@ const application = ref<boolean>(false);
   const applicationoff = () => {
     application.value = !application.value;
 };
+const applicationTitle = ref<Icon>({
+  headline: 'icon-yingyong',
+  title:'应用'
+})
 const applicationlist = ref<Title[]>([]);
   applicationlist.value = [
   {
     icon: "icon-daili",
-    title: "代理管理",
+    text: "代理管理",
   },
   {
     icon: "icon-chajian",
-    title: "插件中心",
+    text: "插件中心",
   },
   {
     icon: "icon-a-guanli1",
-    title: "窗口同步",
+    text: "窗口同步",
   },
   {
     icon: "icon-tuiguang",
-    title: "推广奖励",
+    text: "推广奖励",
   },
 ];
 </script>
