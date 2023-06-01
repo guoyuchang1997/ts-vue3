@@ -39,5 +39,6 @@ const emit = defineEmits<{
   }
   .minlist{
     margin-bottom: 100vh;
+    width: 100%;
   }
 </style>

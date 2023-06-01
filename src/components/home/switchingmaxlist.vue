@@ -7,18 +7,72 @@
       <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
     </div>
     <div class="Down">
-      <Down>
-          
-      </Down>
+      <Down :titlelist="titlelist" :isshwo="Commonly" @openoff="Commonlyoff" />
+      <Down :titlelist="applicationlist" @openoff="applicationoff" :isshwo="application" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Down from "~/home/down.vue";
+import { Title } from "~/home/title";
+/**
+ * 展开缩放
+ */
 const emit = defineEmits<{
   (e: "changelistwidht"): void;
 }>();
+
+/**
+ * 常用列表
+ */
+const Commonly = ref<Boolean>(false);
+const Commonlyoff = () => {
+  Commonly.value = !Commonly.value;
+};
+
+const titlelist = ref<Title[]>([]);
+titlelist.value = [
+  {
+    icon: "icon-zhanghao",
+    title: "账号管理",
+  },
+  {
+    icon: "icon-a-ixintucom1",
+    title: "快速启动",
+  },
+  {
+    icon: "icon-a-huishou1",
+    title: "回收站",
+  },
+];
+
+/**
+ * 应用
+ */
+const application = ref<boolean>(false);
+  const applicationoff = () => {
+    application.value = !application.value;
+};
+const applicationlist = ref<Title[]>([]);
+  applicationlist.value = [
+  {
+    icon: "icon-daili",
+    title: "代理管理",
+  },
+  {
+    icon: "icon-chajian",
+    title: "插件中心",
+  },
+  {
+    icon: "icon-a-guanli1",
+    title: "窗口同步",
+  },
+  {
+    icon: "icon-tuiguang",
+    title: "推广奖励",
+  },
+];
 </script>
 
 <style scoped lang="less">
@@ -47,9 +101,9 @@ const emit = defineEmits<{
 }
 .maxlist {
   margin-bottom: 100vh;
+  width: 100%;
 }
-.Down{
+.Down {
   margin: 10px 20px 0 10px;
- 
 }
 </style>

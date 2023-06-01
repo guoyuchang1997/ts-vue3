@@ -1,14 +1,14 @@
 <template>
-  <div class="down pointer" @click="openlist">
+  <div class="down pointer" @click="emit('openoff')">
     <i class="iconfont icon-CHANGYONG1 fs-xss"></i>
     <div class="text fs-sm">常用</div>
     <i
       class="iconfont icon-xialajiantou"
-      :class="{ xialajiantou: rotate, xialajiantous: !rotate }"
+      :class="{ xialajiantou: isshwo, xialajiantous: !isshwo }"
     ></i>
   </div>
-  <div :class="{conten:rotate}">
-    <div class="downlist pointer" v-for="(item, index) in titlelist" :key="index">
+  <div ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
+    <div class="downlist pointer" v-for="(item, index) in props.titlelist" :key="index">
       <i class="iconfont fs-lg" :class="item.icon"></i>
       <div class="text fs-sm">{{ item.title }}</div>
     </div>
@@ -16,43 +16,54 @@
 </template>
 
 <script setup lang="ts">
-import { Title } from "~/home/title";
-/**
- *  箭头翻转
- */
-let rotate = ref<boolean>(false);
-const openlist = () => {
-  rotate.value = !rotate.value;
-};
+// /**
+//  *  箭头翻转
+//  */
+// let rotate = ref<boolean>(false);
+// const openlist = () => {
+//   rotate.value = !rotate.value;
+// };
 
 /**
- * 下拉列表
+ * 展开下拉
  */
-const titlelist = ref<Title[]>([]);
-titlelist.value = [
-  {
-    icon: "icon-zhanghao",
-    title: "账号管理",
-  },
-  {
-    icon: "icon-a-ixintucom1",
-    title: "快速启动",
-  },
-  {
-    icon: "icon-a-huishou1",
-    title: "回收站",
-  },
-];
+const emit = defineEmits(["openoff"]);
+
+/**
+ * 元素高度
+ */
+const height = ref(null);
+const listheight = ref({
+  height: "",
+});
+onMounted(() => {
+  if (height.value) {
+    listheight.value.height = `${height.value.clientHeight}px`;
+  }
+});
+
+/**
+ * 列表数据
+ */
+const props = defineProps({
+  titlelist: Array,
+  isshwo: Boolean,
+});
 </script>
 
 <style scoped lang="less">
-.conten{
+.conten {
   height: 0;
   overflow: hidden;
   transition: all 0.3s;
 }
+.contenopen {
+  height: v-bind("listheight.height");
+  overflow: hidden;
+  transition: all 0.3s;
+}
 .down {
-  width: 100%;
+  width: 220px;
   display: flex;
   height: 45px;
   align-items: center;
@@ -69,14 +80,15 @@ titlelist.value = [
   color: #2b53e5;
 }
 .xialajiantou {
-  transform: rotate(180deg);
-  transition: transform 0.5s;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
 }
 .xialajiantous {
-  transform: rotate(0deg);
-  transition: transform 0.5s;
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
 }
 .downlist {
+  width: 220px;
   display: flex;
   padding-left: 50px;
   height: 45px;
@@ -86,8 +98,6 @@ titlelist.value = [
   }
 }
 .downlist:hover {
-  width: 220px;
-  height: 45px;
   background: #e9edfc;
   border-radius: 8px 8px 8px 8px;
   color: #2b53e5;
