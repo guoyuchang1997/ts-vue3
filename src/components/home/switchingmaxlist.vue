@@ -1,12 +1,12 @@
 <template>
   <div class="maxlist">
-    <el-button class="fs-lg unfold"
+    <el-button @click="calculation" class="fs-lg unfold"
       ><i class="iconfont icon-yuanquanjiahao"></i> 新建浏览器</el-button
     >
     <div class="toggle">
       <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
     </div>
-    <div class="Down">
+    <div class="Down" ref="Downs">
       <Down :titlelist="titlelist" :headline="CommonlyTitle" :isshwo="Commonly" @openoff="Commonlyoff" />
       <Down :titlelist="applicationlist" :headline="applicationTitle" @openoff="applicationoff" :isshwo="application" />
       <Down :titlelist="automationlist" :headline="automationTitle" @openoff="automationoff" :isshwo="automation" />
@@ -18,7 +18,8 @@
 
 <script setup lang="ts">
 import Down from "~/home/down.vue";
-import { Title ,Icon} from "~/home/title";
+import { Title, Icon } from "~/home/title";
+import Deferredexecution from '@/mixins/useDebounce'
 /**
  * 展开缩放
  */
@@ -26,12 +27,70 @@ const emit = defineEmits<{
   (e: "changelistwidht"): void;
 }>();
 
+
+/**
+ * 元素高度
+ */
+ interface Height{
+  /**
+   * 高度
+   */
+   clientHeight: number
+}
+interface bodyHeight{
+   /**
+   * 高度
+   */
+   height: number
+  /**
+   * body高度
+   */
+   bodyheight:number
+}
+const Downs = ref<Height>();
+const listheight = ref<bodyHeight>({
+  height: 0,
+  bodyheight:0
+});
+
+const calculation = () => {
+  if (Downs.value) {
+   
+    listheight.value.height = Downs.value.clientHeight;
+    listheight.value.bodyheight = document.body.clientHeight - 130;
+    console.log('调用了',listheight.value.bodyheight < listheight.value.height,listheight.value.bodyheight ,listheight.value.height);
+    if (listheight.value.bodyheight < listheight.value.height) {
+      console.log('高度过大');
+      if (!Commonly.value) {
+        Commonly.value = true;
+        calculation(); // 重新调用函数
+      } else if (!application.value) {
+        application.value = true;
+        calculation(); // 重新调用函数
+      } else if (!automation.value) {
+        automation.value = true;
+        calculation(); // 重新调用函数
+      } else if (!team.value) {
+        team.value = true;
+        calculation(); // 重新调用函数
+      } else if (!safety.value) {
+        safety.value = true;
+        calculation(); // 重新调用函数
+      }
+    }
+  }
+};
+
+
+
 /**
  * 常用列表
  */
 const Commonly = ref<boolean>(false);
 const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
+  Deferredexecution(calculation,0)
+  
 };
 
 const titlelist = ref<Title[]>([]);
@@ -57,8 +116,9 @@ const CommonlyTitle = ref<Icon>({
  * 应用
  */
 const application = ref<boolean>(false);
-  const applicationoff = () => {
-    application.value = !application.value;
+const applicationoff = () => {
+  application.value = !application.value;
+  Deferredexecution(calculation,0)
 };
 const applicationTitle = ref<Icon>({
   headline: 'icon-yingyong',
@@ -88,8 +148,9 @@ const applicationlist = ref<Title[]>([]);
  * 自动化
  */
  const automation = ref<boolean>(false);
-  const automationoff = () => {
-    automation.value = !automation.value;
+const automationoff = () => {
+  automation.value = !automation.value;
+  Deferredexecution(calculation,0)
 };
 const automationTitle = ref<Icon>({
   headline: 'icon-zidonghua',
@@ -111,8 +172,9 @@ const automationlist = ref<Title[]>([]);
  * 团队列表
  */
  const team = ref<boolean>(false);
-  const teamoff = () => {
-    team.value = !team.value;
+const teamoff = () => {
+  team.value = !team.value;
+  Deferredexecution(calculation,0)
 };
 const teamTitle = ref<Icon>({
   headline: 'icon-a-qunzu6',
@@ -141,8 +203,9 @@ const teamlist = ref<Title[]>([]);
  * 安全
  */
  const safety = ref<boolean>(false);
-  const safetyff = () => {
-    safety.value = !safety.value;
+const safetyff = () => {
+  safety.value = !safety.value;
+  Deferredexecution(calculation,0)
 };
 const safetyTitle = ref<Icon>({
   headline: 'icon-anquan',
