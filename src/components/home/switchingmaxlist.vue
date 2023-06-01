@@ -9,6 +9,9 @@
     <div class="Down">
       <Down :titlelist="titlelist" :headline="CommonlyTitle" :isshwo="Commonly" @openoff="Commonlyoff" />
       <Down :titlelist="applicationlist" :headline="applicationTitle" @openoff="applicationoff" :isshwo="application" />
+      <Down :titlelist="automationlist" :headline="automationTitle" @openoff="automationoff" :isshwo="automation" />
+      <Down :titlelist="teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
+      <Down :titlelist="safetylist" :headline="safetyTitle" @openoff="safetyff" :isshwo="safety" />
     </div>
   </div>
 </template>
@@ -79,6 +82,75 @@ const applicationlist = ref<Title[]>([]);
     icon: "icon-tuiguang",
     text: "推广奖励",
   },
+];
+
+/**
+ * 自动化
+ */
+ const automation = ref<boolean>(false);
+  const automationoff = () => {
+    automation.value = !automation.value;
+};
+const automationTitle = ref<Icon>({
+  headline: 'icon-zidonghua',
+  title:'自动化'
+})
+const automationlist = ref<Title[]>([]);
+  automationlist.value = [
+  {
+    icon: "icon-a-api1",
+    text: "API",
+  },
+  {
+    icon: "icon-rpa",
+    text: "RPA",
+  }
+];
+
+/**
+ * 团队列表
+ */
+ const team = ref<boolean>(false);
+  const teamoff = () => {
+    team.value = !team.value;
+};
+const teamTitle = ref<Icon>({
+  headline: 'icon-a-qunzu6',
+  title:'团队'
+})
+const teamlist = ref<Title[]>([]);
+  teamlist.value = [
+  {
+    icon: "icon-a-feiyong",
+    text: "费用管理",
+  },
+  {
+    icon: "icon-chengyuan",
+    text: "成员管理",
+  },
+  {
+    icon: "icon-bumen",
+    text: "部门管理",
+  },
+  {
+    icon: "icon-juese",
+    text: "角色管理",
+  },
+];
+/**
+ * 安全
+ */
+ const safety = ref<boolean>(false);
+  const safetyff = () => {
+    safety.value = !safety.value;
+};
+const safetyTitle = ref<Icon>({
+  headline: 'icon-anquan',
+  title:'安全'
+})
+const safetylist = ref<Title[]>([]);
+  safetylist.value = [
+  
 ];
 </script>
 
