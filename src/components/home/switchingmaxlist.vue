@@ -31,10 +31,9 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="switchingmaxlist">
 import Down from "~/home/down.vue";
 import { Title, Icon } from "~/home/title";
-import Deferredexecution from "@/mixins/useDebounce";
 /**
  * 展开缩放
  */
@@ -67,42 +66,40 @@ const listheight = ref<bodyHeight>({
   bodyheight: 0,
 });
 
-const calculation = () => {
-  setTimeout(() => {
-    if (Downs.value) {
+const calculation = (item?: string) => {
+  if (Downs.value) {
+    setTimeout(() => {
       listheight.value.height = Downs.value.clientHeight;
-      listheight.value.bodyheight = document.body.clientHeight - 100;
-      console.log(
-        "调用了",
-        listheight.value.bodyheight < listheight.value.height,
-        listheight.value.bodyheight,
-        listheight.value.height
-      );
+      listheight.value.bodyheight = document.body.clientHeight - 150;
+      // console.log(
+      //   "调用了",
+      //   listheight.value.bodyheight < listheight.value.height,
+      //   listheight.value.bodyheight,
+      //   listheight.value.height
+      // );
       if (listheight.value.bodyheight < listheight.value.height) {
-        console.log("高度过大");
-        if (!Commonly.value) {
+        if (!Commonly.value && item !== "Commonly") {
           Commonly.value = true;
-        } else if (!application.value) {
+        } else if (!application.value && item !== "application") {
           application.value = true;
-        } else if (!automation.value) {
+        } else if (!automation.value && item !== "automation") {
           automation.value = true;
-        } else if (!team.value) {
+        } else if (!team.value && item !== "team") {
           team.value = true;
-        } else if (!safety.value) {
+        } else if (!safety.value && item !== "safety") {
           safety.value = true;
         }
       }
-    }
-  }, 0);
+    }, 100);
+  }
 };
-
 /**
  * 常用列表
  */
 const Commonly = ref<boolean>(false);
 const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
-  Deferredexecution(calculation, 100);
+  calculation("Commonly");
 };
 
 const titlelist = ref<Title[]>([]);
@@ -130,7 +127,7 @@ const CommonlyTitle = ref<Icon>({
 const application = ref<boolean>(false);
 const applicationoff = () => {
   application.value = !application.value;
-  Deferredexecution(calculation, 100);
+  calculation("application");
 };
 const applicationTitle = ref<Icon>({
   headline: "icon-yingyong",
@@ -162,7 +159,7 @@ applicationlist.value = [
 const automation = ref<boolean>(false);
 const automationoff = () => {
   automation.value = !automation.value;
-  Deferredexecution(calculation, 100);
+  calculation("automation");
 };
 const automationTitle = ref<Icon>({
   headline: "icon-zidonghua",
@@ -186,7 +183,7 @@ automationlist.value = [
 const team = ref<boolean>(false);
 const teamoff = () => {
   team.value = !team.value;
-  Deferredexecution(calculation, 100);
+  calculation("team");
 };
 const teamTitle = ref<Icon>({
   headline: "icon-a-qunzu6",
@@ -217,7 +214,7 @@ teamlist.value = [
 const safety = ref<boolean>(false);
 const safetyff = () => {
   safety.value = !safety.value;
-  Deferredexecution(calculation, 100);
+  calculation("safety");
 };
 const safetyTitle = ref<Icon>({
   headline: "icon-anquan",
