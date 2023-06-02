@@ -7,9 +7,24 @@
       <i class="iconfont icon-shouhui fs-sm pointer" @click="emit('changelistwidht')"></i>
     </div>
     <div class="Down" ref="Downs">
-      <Down :titlelist="titlelist" :headline="CommonlyTitle" :isshwo="Commonly" @openoff="Commonlyoff" />
-      <Down :titlelist="applicationlist" :headline="applicationTitle" @openoff="applicationoff" :isshwo="application" />
-      <Down :titlelist="automationlist" :headline="automationTitle" @openoff="automationoff" :isshwo="automation" />
+      <Down
+        :titlelist="titlelist"
+        :headline="CommonlyTitle"
+        :isshwo="Commonly"
+        @openoff="Commonlyoff"
+      />
+      <Down
+        :titlelist="applicationlist"
+        :headline="applicationTitle"
+        @openoff="applicationoff"
+        :isshwo="application"
+      />
+      <Down
+        :titlelist="automationlist"
+        :headline="automationTitle"
+        @openoff="automationoff"
+        :isshwo="automation"
+      />
       <Down :titlelist="teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
       <Down :titlelist="safetylist" :headline="safetyTitle" @openoff="safetyff" :isshwo="safety" />
     </div>
@@ -19,7 +34,7 @@
 <script setup lang="ts">
 import Down from "~/home/down.vue";
 import { Title, Icon } from "~/home/title";
-import Deferredexecution from '@/mixins/useDebounce'
+import Deferredexecution from "@/mixins/useDebounce";
 /**
  * 展开缩放
  */
@@ -27,61 +42,59 @@ const emit = defineEmits<{
   (e: "changelistwidht"): void;
 }>();
 
-
 /**
  * 元素高度
  */
- interface Height{
+interface Height {
   /**
    * 高度
    */
-   clientHeight: number
+  clientHeight: number;
 }
-interface bodyHeight{
-   /**
+interface bodyHeight {
+  /**
    * 高度
    */
-   height: number
+  height: number;
   /**
    * body高度
    */
-   bodyheight:number
+  bodyheight: number;
 }
 const Downs = ref<Height>();
 const listheight = ref<bodyHeight>({
   height: 0,
-  bodyheight:0
+  bodyheight: 0,
 });
 
 const calculation = () => {
-  if (Downs.value) {
-   
-    listheight.value.height = Downs.value.clientHeight;
-    listheight.value.bodyheight = document.body.clientHeight - 130;
-    console.log('调用了',listheight.value.bodyheight < listheight.value.height,listheight.value.bodyheight ,listheight.value.height);
-    if (listheight.value.bodyheight < listheight.value.height) {
-      console.log('高度过大');
-      if (!Commonly.value) {
-        Commonly.value = true;
-        calculation(); // 重新调用函数
-      } else if (!application.value) {
-        application.value = true;
-        calculation(); // 重新调用函数
-      } else if (!automation.value) {
-        automation.value = true;
-        calculation(); // 重新调用函数
-      } else if (!team.value) {
-        team.value = true;
-        calculation(); // 重新调用函数
-      } else if (!safety.value) {
-        safety.value = true;
-        calculation(); // 重新调用函数
+  setTimeout(() => {
+    if (Downs.value) {
+      listheight.value.height = Downs.value.clientHeight;
+      listheight.value.bodyheight = document.body.clientHeight - 100;
+      console.log(
+        "调用了",
+        listheight.value.bodyheight < listheight.value.height,
+        listheight.value.bodyheight,
+        listheight.value.height
+      );
+      if (listheight.value.bodyheight < listheight.value.height) {
+        console.log("高度过大");
+        if (!Commonly.value) {
+          Commonly.value = true;
+        } else if (!application.value) {
+          application.value = true;
+        } else if (!automation.value) {
+          automation.value = true;
+        } else if (!team.value) {
+          team.value = true;
+        } else if (!safety.value) {
+          safety.value = true;
+        }
       }
     }
-  }
+  }, 0);
 };
-
-
 
 /**
  * 常用列表
@@ -89,8 +102,7 @@ const calculation = () => {
 const Commonly = ref<boolean>(false);
 const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
-  Deferredexecution(calculation,0)
-  
+  Deferredexecution(calculation, 100);
 };
 
 const titlelist = ref<Title[]>([]);
@@ -109,23 +121,23 @@ titlelist.value = [
   },
 ];
 const CommonlyTitle = ref<Icon>({
-  headline: 'icon-CHANGYONG1',
-  title:'常用'
-})
+  headline: "icon-CHANGYONG1",
+  title: "常用",
+});
 /**
  * 应用
  */
 const application = ref<boolean>(false);
 const applicationoff = () => {
   application.value = !application.value;
-  Deferredexecution(calculation,0)
+  Deferredexecution(calculation, 100);
 };
 const applicationTitle = ref<Icon>({
-  headline: 'icon-yingyong',
-  title:'应用'
-})
+  headline: "icon-yingyong",
+  title: "应用",
+});
 const applicationlist = ref<Title[]>([]);
-  applicationlist.value = [
+applicationlist.value = [
   {
     icon: "icon-daili",
     text: "代理管理",
@@ -147,17 +159,17 @@ const applicationlist = ref<Title[]>([]);
 /**
  * 自动化
  */
- const automation = ref<boolean>(false);
+const automation = ref<boolean>(false);
 const automationoff = () => {
   automation.value = !automation.value;
-  Deferredexecution(calculation,0)
+  Deferredexecution(calculation, 100);
 };
 const automationTitle = ref<Icon>({
-  headline: 'icon-zidonghua',
-  title:'自动化'
-})
+  headline: "icon-zidonghua",
+  title: "自动化",
+});
 const automationlist = ref<Title[]>([]);
-  automationlist.value = [
+automationlist.value = [
   {
     icon: "icon-a-api1",
     text: "API",
@@ -165,23 +177,23 @@ const automationlist = ref<Title[]>([]);
   {
     icon: "icon-rpa",
     text: "RPA",
-  }
+  },
 ];
 
 /**
  * 团队列表
  */
- const team = ref<boolean>(false);
+const team = ref<boolean>(false);
 const teamoff = () => {
   team.value = !team.value;
-  Deferredexecution(calculation,0)
+  Deferredexecution(calculation, 100);
 };
 const teamTitle = ref<Icon>({
-  headline: 'icon-a-qunzu6',
-  title:'团队'
-})
+  headline: "icon-a-qunzu6",
+  title: "团队",
+});
 const teamlist = ref<Title[]>([]);
-  teamlist.value = [
+teamlist.value = [
   {
     icon: "icon-a-feiyong",
     text: "费用管理",
@@ -202,19 +214,17 @@ const teamlist = ref<Title[]>([]);
 /**
  * 安全
  */
- const safety = ref<boolean>(false);
+const safety = ref<boolean>(false);
 const safetyff = () => {
   safety.value = !safety.value;
-  Deferredexecution(calculation,0)
+  Deferredexecution(calculation, 100);
 };
 const safetyTitle = ref<Icon>({
-  headline: 'icon-anquan',
-  title:'安全'
-})
+  headline: "icon-anquan",
+  title: "安全",
+});
 const safetylist = ref<Title[]>([]);
-  safetylist.value = [
-  
-];
+safetylist.value = [];
 </script>
 
 <style scoped lang="less">
