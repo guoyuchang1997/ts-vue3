@@ -9,7 +9,7 @@
   </div>
   <div id="height" ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
     <div
-      class="downlist pointer"
+      class="downlist pointer "
       v-for="(item, index) in props.titlelist"
       :key="index"
       @click="gorouter(item.router)"
@@ -33,7 +33,7 @@ import router from "@/router/index.js";
 // const openlist = () => {
 //   rotate.value = !rotate.value;
 // };
-const gorouter = (item:any) => {
+const gorouter = (item: any) => {
   router.push({
     path: item,
     // name: 'home',
@@ -45,6 +45,7 @@ const gorouter = (item:any) => {
     // console.log(route.query)
   });
 };
+
 /**
  * 展开下拉
  */
@@ -63,8 +64,12 @@ const height = ref<Height>();
 const listheight = ref({
   height: "",
 });
+const indexurl = ref('')
 onMounted(() => {
   getheight();
+  indexurl.value = window.location.href
+  console.log(router);
+  
 });
 const getheight = () => {
   // 直接给false会导致高度为0,需要父组件异步传递false
@@ -134,6 +139,12 @@ const props = defineProps<Iprops>();
   align-items: center;
   .text {
     margin: 0 14px;
+  }
+  &.active {
+    color: #fff !important;
+    background: #2d5aff !important;
+    box-shadow: 0px 4px 10px 0px rgba(59, 59, 59, 0.2);
+    border-radius: 8px 8px 8px 8px;
   }
 }
 .downlist:hover {

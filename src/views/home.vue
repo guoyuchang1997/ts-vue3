@@ -19,7 +19,7 @@ import Hander from "~/home/hander.vue";
 .main {
   width: 100%;
   height: 100vh;
-  background-color: @van-mainbgc-color;
+  background-color: @mlcolor;
   display: flex;
   .rgmain {
     margin: 10px 15px 0 0;
