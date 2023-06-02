@@ -8,9 +8,16 @@
     ></i>
   </div>
   <div id="height" ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
-    <div class="downlist pointer" v-for="(item, index) in props.titlelist" :key="index">
+    <div
+      class="downlist pointer"
+      v-for="(item, index) in props.titlelist"
+      :key="index"
+      @click="gorouter(item.router)"
+    >
       <i class="iconfont fs-lg" :class="item.icon"></i>
-      <div class="text fs-sm">{{ item.text }}</div>
+      <div class="text fs-sm">
+        {{ item.text }}
+      </div>
       <!-- 可以直接补充icon图标 -->
     </div>
   </div>
@@ -18,6 +25,7 @@
 
 <script setup lang="ts">
 import { Title, Icon } from "~/home/title";
+import router from "@/router/index.js";
 // /**
 //  *  箭头翻转
 //  */
@@ -25,7 +33,18 @@ import { Title, Icon } from "~/home/title";
 // const openlist = () => {
 //   rotate.value = !rotate.value;
 // };
-
+const gorouter = (item:any) => {
+  router.push({
+    path: item,
+    // name: 'home',
+    // query: {
+    // msg: 'hello'
+    // }
+    // 参数接受
+    // const route = useRoute()
+    // console.log(route.query)
+  });
+};
 /**
  * 展开下拉
  */

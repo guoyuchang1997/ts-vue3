@@ -107,14 +107,17 @@ titlelist.value = [
   {
     icon: "icon-zhanghao",
     text: "账号管理",
+    router:'/'
   },
   {
     icon: "icon-a-ixintucom1",
     text: "快速启动",
+    router:'/'
   },
   {
     icon: "icon-a-huishou1",
     text: "回收站",
+    router:'/'
   },
 ];
 const CommonlyTitle = ref<Icon>({
@@ -138,18 +141,22 @@ applicationlist.value = [
   {
     icon: "icon-daili",
     text: "代理管理",
+    router:'/'
   },
   {
     icon: "icon-chajian",
     text: "插件中心",
+    router:'/'
   },
   {
     icon: "icon-a-guanli1",
     text: "窗口同步",
+    router:'/'
   },
   {
     icon: "icon-tuiguang",
     text: "推广奖励",
+    router:'/'
   },
 ];
 
@@ -170,10 +177,12 @@ automationlist.value = [
   {
     icon: "icon-a-api1",
     text: "API",
+    router:'/'
   },
   {
     icon: "icon-rpa",
     text: "RPA",
+    router:'/'
   },
 ];
 
@@ -194,18 +203,22 @@ teamlist.value = [
   {
     icon: "icon-a-feiyong",
     text: "费用管理",
+    router:'/management'
   },
   {
     icon: "icon-chengyuan",
     text: "成员管理",
+    router:'/management'
   },
   {
     icon: "icon-bumen",
     text: "部门管理",
+    router:'/management'
   },
   {
     icon: "icon-juese",
     text: "角色管理",
+    router:'/management'
   },
 ];
 /**

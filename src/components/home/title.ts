@@ -6,15 +6,19 @@ export type Title = {
   /**
    * 列表头
    */
-  text: String
+  text: String;
+  /**
+   * 路由
+   */
+  router?: String;
 };
 export type Icon = {
   /**
- * title 图标
- */
-  headline: String
+   * title 图标
+   */
+  headline: String;
   /**
    * 标题
    */
   title: String;
-}
+};

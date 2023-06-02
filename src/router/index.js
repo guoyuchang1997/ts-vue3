@@ -11,9 +11,17 @@ const router = createRouter({
         {
           path: "/",
           name: "accoun",
-          component: () => import("~/account/accountinfo.vue"),
+          component: () => import("@/views/account.vue"),
           meta: {
             menu: "accoun",
+          },
+        },
+        {
+          path: "/management",
+          name: "management",
+          component: () => import("@/views/management.vue"),
+          meta: {
+            menu: "management",
           },
         },
       ],
