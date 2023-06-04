@@ -1,6 +1,6 @@
 <template>
   <div class="shrink">
-    <div class="title fs-xs pointer" @click="emit('openoff')">
+    <div class="title fs-xs pointer" @click="emit('openoff')" :class="{active:props.titlelist.some((item) => item.mate === useLeftList.name)}">
       <i class="iconfont fs-xs" :class="props.headline.headline"></i>
       <div class="text">{{ props.headline.title }}</div>
       <i
@@ -100,6 +100,9 @@ const props = defineProps<Iprops>();
 .title {
   display: flex;
   margin-left: 8px;
+  &.active{
+    color: #2b53e5;
+  }
   .text {
     margin-left: 4px;
     margin-right: 2px;

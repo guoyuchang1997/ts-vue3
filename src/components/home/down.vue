@@ -1,5 +1,5 @@
 <template>
-  <div class="down pointer" @click="emit('openoff')">
+  <div class="down pointer" :class="{active:props.titlelist.some((item) => item.mate === useLeftList.name)}" @click="emit('openoff')">
     <i class="iconfont fs-xss" :class="props.headline.headline"></i>
     <div class="text fs-sm">{{ props.headline.title }}</div>
     <i
@@ -114,6 +114,9 @@ const props = defineProps<Iprops>();
   }
   i:first-child {
     padding-right: 10px;
+  }
+  &.active{
+    color: #2b53e5;
   }
 }
 .down:hover {
