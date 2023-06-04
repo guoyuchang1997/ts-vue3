@@ -211,25 +211,25 @@ teamlist.value = [
   {
     icon: "icon-a-feiyong",
     text: "费用",
-    router: '/',
+    router: '/management',
     mate: 'expense'
   },
   {
     icon: "icon-chengyuan",
     text: "成员",
-    router: '/',
+    router: '/management',
     mate: 'member'
   },
   {
     icon: "icon-bumen",
     text: "部门",
-    router: '/',
+    router: '/management',
     mate: 'department'
   },
   {
     icon: "icon-juese",
     text: "角色",
-    router: '/',
+    router: '/management',
     mate: 'role'
   },
 ];

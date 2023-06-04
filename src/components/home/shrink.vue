@@ -8,9 +8,9 @@
         :class="{ xialajiantou: isshwo, xialajiantous: !isshwo }"
       ></i>
     </div>
-    <div ref="height" class="shrinklist pointer" :class="{ conten: isshwo, contenopen: !isshwo }">
-      <div  @click="gorouter(item)" :class="{active:useLeftList.name === item.mate}" class="item" v-for="(item, index) in props.titlelist" :key="index">
-        <i class="iconfont fs-xxl" :class="item.icon"></i>
+    <div ref="height" class="shrinklist " :class="{ conten: isshwo, contenopen: !isshwo }">
+      <div  @click="gorouter(item)" :class="{active:useLeftList.name === item.mate}" class="item pointer" v-for="(item, index) in props.titlelist" :key="index">
+        <i class="iconfont fs-xxl " :class="item.icon"></i>
         <div class="text fs-xs">{{ item.text }}</div>
       </div>
     </div>
