@@ -8,13 +8,13 @@
     </div>
     <div class="Down" ref="Downs">
       <Down
-        :titlelist="titlelist"
+        :titlelist="Comtitlelist"
         :headline="CommonlyTitle"
         :isshwo="Commonly"
         @openoff="Commonlyoff"
       />
       <Down
-        :titlelist="applicationlist"
+        :titlelist="Applicationlist"
         :headline="applicationTitle"
         @openoff="applicationoff"
         :isshwo="application"
@@ -25,7 +25,7 @@
         @openoff="automationoff"
         :isshwo="automation"
       />
-      <Down :titlelist="teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
+      <Down :titlelist="Teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
       <Down :titlelist="safetylist" :headline="safetyTitle" @openoff="safetyff" :isshwo="safety" />
     </div>
   </div>
@@ -33,7 +33,7 @@
 
 <script setup lang="ts" name="switchingmaxlist">
 import Down from "~/home/down.vue";
-import { Title, Icon } from "~/home/title";
+import { Title, Icon,commonmax_Commonly,titlelist ,teamlist,commonmax_teamlist,applicationlist,commonmax_application,automationlist} from "~/home/title";
 /**
  * 展开缩放
  */
@@ -95,28 +95,10 @@ const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
   calculation("Commonly");
 };
-
-const titlelist = ref<Title[]>([]);
-titlelist.value = [
-  {
-    icon: "icon-zhanghao",
-    text: "账号管理",
-    router: '/',
-    mate:'Account'
-  },
-  {
-    icon: "icon-a-ixintucom1",
-    text: "快速启动",
-    router: '/',
-    mate:'fast'
-  },
-  {
-    icon: "icon-a-huishou1",
-    text: "回收站",
-    router: '/',
-    mate: 'Recycling'
-  },
-];
+const Comtitlelist = titlelist.map((v, index) => {
+  v.text = commonmax_Commonly[index]
+  return v
+})
 const CommonlyTitle = ref<Icon>({
   headline: "icon-CHANGYONG1",
   title: "常用",
@@ -133,33 +115,10 @@ const applicationTitle = ref<Icon>({
   headline: "icon-yingyong",
   title: "应用",
 });
-const applicationlist = ref<Title[]>([]);
-applicationlist.value = [
-  {
-    icon: "icon-daili",
-    text: "代理管理",
-    router: '/',
-    mate: 'agency'
-  },
-  {
-    icon: "icon-chajian",
-    text: "插件中心",
-    router: '/',
-    mate: 'plugin'
-  },
-  {
-    icon: "icon-a-guanli1",
-    text: "窗口同步",
-    router: '/',
-    mate: 'window'
-  },
-  {
-    icon: "icon-tuiguang",
-    text: "推广奖励",
-    router: '/',
-    mate: 'promotion'
-  },
-];
+const Applicationlist = applicationlist.map((v, index) => {
+  v.text = commonmax_application[index]
+  return v
+})
 
 /**
  * 自动化
@@ -173,21 +132,6 @@ const automationTitle = ref<Icon>({
   headline: "icon-zidonghua",
   title: "自动化",
 });
-const automationlist = ref<Title[]>([]);
-automationlist.value = [
-  {
-    icon: "icon-a-api1",
-    text: "API",
-    router: '/',
-    mate: 'api'
-  },
-  {
-    icon: "icon-rpa",
-    text: "RPA",
-    router: '/',
-    mate:'rpa'
-  },
-];
 
 /**
  * 团队列表
@@ -201,33 +145,11 @@ const teamTitle = ref<Icon>({
   headline: "icon-a-qunzu6",
   title: "团队",
 });
-const teamlist = ref<Title[]>([]);
-teamlist.value = [
-  {
-    icon: "icon-a-feiyong",
-    text: "费用管理",
-    router: '/management',
-    mate: 'expense'
-  },
-  {
-    icon: "icon-chengyuan",
-    text: "成员管理",
-    router: '/management',
-    mate: 'member'
-  },
-  {
-    icon: "icon-bumen",
-    text: "部门管理",
-    router: '/management',
-    mate: 'department'
-  },
-  {
-    icon: "icon-juese",
-    text: "角色管理",
-    router: '/management',
-    mate: 'role'
-  },
-];
+const Teamlist = teamlist.map((v, index) => {
+  v.text = commonmax_teamlist[index]
+  return v
+})
+
 /**
  * 安全
  */

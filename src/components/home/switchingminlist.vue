@@ -6,13 +6,13 @@
     </div>
     <div class="down" ref="Downs">
       <Shrink
-        :titlelist="titlelist"
+        :titlelist="Comtitlelist"
         :headline="CommonlyTitle"
         :isshwo="Commonly"
         @openoff="Commonlyoff"
       />
       <Shrink
-        :titlelist="applicationlist"
+        :titlelist="Applicationlist"
         :headline="applicationTitle"
         @openoff="applicationoff"
         :isshwo="application"
@@ -23,7 +23,7 @@
         @openoff="automationoff"
         :isshwo="automation"
       />
-      <Shrink :titlelist="teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
+      <Shrink :titlelist="Teamlist" :headline="teamTitle" @openoff="teamoff" :isshwo="team" />
       <Shrink
         :titlelist="safetylist"
         :headline="safetyTitle"
@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 import Shrink from "~/home/shrink.vue";
-import { Title, Icon } from "~/home/title";
+import { Title, Icon ,teamlist,titlelist,commonmin_teamlist,commonmin_Commonly,commonmin_application,applicationlist,automationlist} from "~/home/title";
 const emit = defineEmits<{
   (e: "changelistwidht"): void;
 }>();
@@ -102,27 +102,10 @@ const Commonlyoff = () => {
   Commonly.value = !Commonly.value;
   calculation("Commonly");
 };
-const titlelist = ref<Title[]>([]);
-titlelist.value = [
-  {
-    icon: "icon-zhanghao",
-    text: "账号",
-    router: '/',
-    mate:'Account'
-  },
-  {
-    icon: "icon-a-ixintucom1",
-    text: "启动",
-    router: '/',
-    mate:'fast'
-  },
-  {
-    icon: "icon-a-huishou1",
-    text: "回收",
-    router: '/',
-    mate: 'Recycling'
-  },
-];
+const Comtitlelist = titlelist.map((v, index) => {
+  v.text = commonmin_Commonly[index]
+  return v
+})
 const CommonlyTitle = ref<Icon>({
   headline: "icon-CHANGYONG1",
   title: "常用",
@@ -139,34 +122,10 @@ const applicationTitle = ref<Icon>({
   headline: "icon-yingyong",
   title: "应用",
 });
-const applicationlist = ref<Title[]>([]);
-applicationlist.value = [
-  {
-    icon: "icon-daili",
-    text: "代理",
-    router: '/',
-    mate: 'agency'
-  },
-  {
-    icon: "icon-chajian",
-    text: "插件",
-    router: '/',
-    mate: 'plugin'
-  },
-  {
-    icon: "icon-a-guanli1",
-    text: "同步",
-    router: '/',
-    mate: 'window'
-  },
-  {
-    icon: "icon-tuiguang",
-    text: "推广",
-    router: '/',
-    mate: 'promotion'
-  },
-];
-
+const Applicationlist = applicationlist.map((v, index) => {
+  v.text = commonmin_application[index]
+  return v
+})
 /**
  * 自动化
  */
@@ -179,21 +138,6 @@ const automationTitle = ref<Icon>({
   headline: "icon-zidonghua",
   title: "自动",
 });
-const automationlist = ref<Title[]>([]);
-automationlist.value = [
-  {
-    icon: "icon-a-api1",
-    text: "API",
-    router: '/',
-    mate: 'api'
-  },
-  {
-    icon: "icon-rpa",
-    text: "RPA",
-    router: '/',
-    mate:'rpa'
-  },
-];
 /**
  * 团队列表
  */
@@ -206,33 +150,10 @@ const teamTitle = ref<Icon>({
   headline: "icon-a-qunzu6",
   title: "团队",
 });
-const teamlist = ref<Title[]>([]);
-teamlist.value = [
-  {
-    icon: "icon-a-feiyong",
-    text: "费用",
-    router: '/management',
-    mate: 'expense'
-  },
-  {
-    icon: "icon-chengyuan",
-    text: "成员",
-    router: '/management',
-    mate: 'member'
-  },
-  {
-    icon: "icon-bumen",
-    text: "部门",
-    router: '/management',
-    mate: 'department'
-  },
-  {
-    icon: "icon-juese",
-    text: "角色",
-    router: '/management',
-    mate: 'role'
-  },
-];
+const Teamlist = teamlist.map((v, index) => {
+  v.text = commonmin_teamlist[index]
+  return v
+})
 /**
  * 安全
  */
