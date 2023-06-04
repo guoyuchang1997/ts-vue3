@@ -36,6 +36,7 @@
 
 <script setup lang="ts">
 import Shrink from "~/home/shrink.vue";
+import useStore from '@/store/index.js'
 import { Title, Icon ,teamlist,titlelist,commonmin_teamlist,commonmin_Commonly,commonmin_application,applicationlist,automationlist} from "~/home/title";
 const emit = defineEmits<{
   (e: "changelistwidht"): void;
@@ -65,33 +66,31 @@ const listheight = ref<bodyHeight>({
   height: 0,
   bodyheight: 0,
 });
+const {useLeftList}  = useStore()
 const calculation = (item?: string) => {
   if (Downs.value) {
     setTimeout(() => {
       listheight.value.height = Downs.value.clientHeight;
-      listheight.value.bodyheight = document.body.clientHeight - 150;
+      listheight.value.bodyheight = document.body.clientHeight - 200;
       // console.log(
       //   "调用了",
       //   listheight.value.bodyheight < listheight.value.height,
       //   listheight.value.bodyheight,
       //   listheight.value.height
       // );
-      if (!Commonly.value && item !== "Commonly" )  {
+      if (listheight.value.bodyheight < listheight.value.height) {
+        if (!Commonly.value && item !== "Commonly" && !titlelist.some((item) => item.mate === useLeftList.name)) {
           Commonly.value = true;
-          calculation('Commonly')
-        } else if (!application.value && item !== "application" ) {
+        } else if (!application.value && item !== "application" && !applicationlist.some((item) => item.mate === useLeftList.name)) {
           application.value = true;
-          calculation('application')
-        } else if (!automation.value && item !== "automation" ) {
+        } else if (!automation.value && item !== "automation" && !automationlist.some((item) => item.mate === useLeftList.name)) {
           automation.value = true;
-          calculation('automation')
-        } else if (!team.value && item !== "team") {
+        } else if (!team.value && item !== "team" && !applicationlist.some((item) => item.mate === useLeftList.name)) {
           team.value = true;
-          calculation('team')
         } else if (!safety.value && item !== "safety") {
           safety.value = true;
-          calculation('safety')
         }
+      }
     }, 100);
   }
 };
