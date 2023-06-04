@@ -11,6 +11,10 @@ export type Title = {
    * 路由
    */
   router?: String;
+  /**
+   * 显示
+   */
+  mate?:String
 };
 export type Icon = {
   /**

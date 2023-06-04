@@ -107,14 +107,20 @@ titlelist.value = [
   {
     icon: "icon-zhanghao",
     text: "账号",
+    router: '/',
+    mate:'Account'
   },
   {
     icon: "icon-a-ixintucom1",
     text: "启动",
+    router: '/',
+    mate:'fast'
   },
   {
     icon: "icon-a-huishou1",
     text: "回收",
+    router: '/',
+    mate: 'Recycling'
   },
 ];
 const CommonlyTitle = ref<Icon>({
@@ -138,18 +144,26 @@ applicationlist.value = [
   {
     icon: "icon-daili",
     text: "代理",
+    router: '/',
+    mate: 'agency'
   },
   {
     icon: "icon-chajian",
     text: "插件",
+    router: '/',
+    mate: 'plugin'
   },
   {
     icon: "icon-a-guanli1",
     text: "同步",
+    router: '/',
+    mate: 'window'
   },
   {
     icon: "icon-tuiguang",
     text: "推广",
+    router: '/',
+    mate: 'promotion'
   },
 ];
 
@@ -170,10 +184,14 @@ automationlist.value = [
   {
     icon: "icon-a-api1",
     text: "API",
+    router: '/',
+    mate: 'api'
   },
   {
     icon: "icon-rpa",
     text: "RPA",
+    router: '/',
+    mate:'rpa'
   },
 ];
 /**
@@ -193,18 +211,26 @@ teamlist.value = [
   {
     icon: "icon-a-feiyong",
     text: "费用",
+    router: '/',
+    mate: 'expense'
   },
   {
     icon: "icon-chengyuan",
     text: "成员",
+    router: '/',
+    mate: 'member'
   },
   {
     icon: "icon-bumen",
     text: "部门",
+    router: '/',
+    mate: 'department'
   },
   {
     icon: "icon-juese",
     text: "角色",
+    router: '/',
+    mate: 'role'
   },
 ];
 /**

@@ -9,7 +9,7 @@
       ></i>
     </div>
     <div ref="height" class="shrinklist pointer" :class="{ conten: isshwo, contenopen: !isshwo }">
-      <div class="item" v-for="(item, index) in props.titlelist" :key="index">
+      <div  @click="gorouter(item)" :class="{active:useLeftList.name === item.mate}" class="item" v-for="(item, index) in props.titlelist" :key="index">
         <i class="iconfont fs-xxl" :class="item.icon"></i>
         <div class="text fs-xs">{{ item.text }}</div>
       </div>
@@ -19,6 +19,8 @@
 
 <script setup lang="ts">
 import { Title, Icon } from "~/home/title";
+import router from "@/router/index.js";
+import useStore from '@/store/index.js'
 /**
  *  箭头翻转
  */
@@ -30,6 +32,23 @@ import { Title, Icon } from "~/home/title";
  * 展开下拉
  */
 const emit = defineEmits(["openoff"]);
+/**
+ * 点击状态
+ */
+const {useLeftList}  = useStore()
+const gorouter = (item: any) => {
+  useLeftList.changemate(item.mate)
+  router.push({
+    path: item.router,
+    // name: 'home',
+    // query: {
+    // msg: 'hello'
+    // }
+    // 参数接受
+    // const route = useRoute()
+    // console.log(route.query)
+  });
+};
 
 /**
  * 元素高度
@@ -107,6 +126,12 @@ const props = defineProps<Iprops>();
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    &.active {
+    color: #fff !important;
+    background: #2d5aff !important;
+    box-shadow: 0px 4px 10px 0px rgba(59, 59, 59, 0.2);
+    border-radius: 8px 8px 8px 8px;
+  }
   }
   .item:hover {
     background: #e9edfc;

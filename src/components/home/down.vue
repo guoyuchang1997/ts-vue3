@@ -10,9 +10,10 @@
   <div id="height" ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
     <div
       class="downlist pointer "
+      :class="{active:useLeftList.name === item.mate}"
       v-for="(item, index) in props.titlelist"
       :key="index"
-      @click="gorouter(item.router)"
+      @click="gorouter(item)"
     >
       <i class="iconfont fs-lg" :class="item.icon"></i>
       <div class="text fs-sm">
@@ -26,16 +27,15 @@
 <script setup lang="ts">
 import { Title, Icon } from "~/home/title";
 import router from "@/router/index.js";
-// /**
-//  *  箭头翻转
-//  */
-// let rotate = ref<boolean>(false);
-// const openlist = () => {
-//   rotate.value = !rotate.value;
-// };
+import useStore from '@/store/index.js'
+/**
+ * 点击状态
+ */
+const {useLeftList}  = useStore()
 const gorouter = (item: any) => {
+  useLeftList.changemate(item.mate)
   router.push({
-    path: item,
+    path: item.router,
     // name: 'home',
     // query: {
     // msg: 'hello'
@@ -64,12 +64,8 @@ const height = ref<Height>();
 const listheight = ref({
   height: "",
 });
-const indexurl = ref('')
 onMounted(() => {
   getheight();
-  indexurl.value = window.location.href
-  console.log(router);
-  
 });
 const getheight = () => {
   // 直接给false会导致高度为0,需要父组件异步传递false
