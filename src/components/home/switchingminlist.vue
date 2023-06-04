@@ -36,6 +36,7 @@
 
 <script setup lang="ts">
 import Shrink from "~/home/shrink.vue";
+import useStore from '@/store/index.js'
 import { Title, Icon ,teamlist,titlelist,commonmin_teamlist,commonmin_Commonly,commonmin_application,applicationlist,automationlist} from "~/home/title";
 const emit = defineEmits<{
   (e: "changelistwidht"): void;
@@ -65,7 +66,7 @@ const listheight = ref<bodyHeight>({
   height: 0,
   bodyheight: 0,
 });
-
+const {useLeftList}  = useStore()
 const calculation = (item?: string) => {
   if (Downs.value) {
     setTimeout(() => {
@@ -78,13 +79,13 @@ const calculation = (item?: string) => {
       //   listheight.value.height
       // );
       if (listheight.value.bodyheight < listheight.value.height) {
-        if (!Commonly.value && item !== "Commonly") {
+        if (!Commonly.value && item !== "Commonly" && !titlelist.some((item) => item.mate === useLeftList.name)) {
           Commonly.value = true;
-        } else if (!application.value && item !== "application") {
+        } else if (!application.value && item !== "application" && !applicationlist.some((item) => item.mate === useLeftList.name)) {
           application.value = true;
-        } else if (!automation.value && item !== "automation") {
+        } else if (!automation.value && item !== "automation" && !automationlist.some((item) => item.mate === useLeftList.name)) {
           automation.value = true;
-        } else if (!team.value && item !== "team") {
+        } else if (!team.value && item !== "team" && !teamlist.some((item) => item.mate === useLeftList.name)) {
           team.value = true;
         } else if (!safety.value && item !== "safety") {
           safety.value = true;
@@ -93,7 +94,9 @@ const calculation = (item?: string) => {
     }, 100);
   }
 };
-
+onMounted(() => {
+  calculation()
+})
 /**
  * 下拉列表
  */

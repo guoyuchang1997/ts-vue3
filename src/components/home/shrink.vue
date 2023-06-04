@@ -22,13 +22,6 @@ import { Title, Icon } from "~/home/title";
 import router from "@/router/index.js";
 import useStore from '@/store/index.js'
 /**
- *  箭头翻转
- */
-// let rotate = ref<boolean>(false);
-// const openlist = () => {
-//   rotate.value = !rotate.value;
-// };
-/**
  * 展开下拉
  */
 const emit = defineEmits(["openoff"]);
