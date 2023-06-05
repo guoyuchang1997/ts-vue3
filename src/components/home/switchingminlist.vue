@@ -75,19 +75,14 @@ const calculation = (item?: string) => {
       if (listheight.value.bodyheight < listheight.value.height) {
         if (!Commonly.value && item !== "Commonly" && !titlelist.some((item) => item.mate === useLeftList.name))  {
           Commonly.value = true;
-          calculation('Commonly')
         } else if (!application.value && item !== "application" && !applicationlist.some((item) => item.mate === useLeftList.name)) {
           application.value = true;
-          calculation('application')
         } else if (!automation.value && item !== "automation" && !automationlist.some((item) => item.mate === useLeftList.name)) {
           automation.value = true;
-          calculation('automation')
         } else if (!team.value && item !== "team" && !teamlist.some((item) => item.mate === useLeftList.name)) {
           team.value = true;
-          calculation('team')
         } else if (!safety.value && item !== "safety") {
           safety.value = true;
-          calculation('safety')
         }
       }
     }

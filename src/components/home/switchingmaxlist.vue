@@ -72,25 +72,18 @@ const calculation = (item?: string) => {
   setTimeout(() => {
     if (Downs.value) {
       listheight.value.height = Downs.value.clientHeight;
-      listheight.value.bodyheight = document.body.clientHeight - 200;
-      console.log('body高度:', listheight.value.bodyheight ,'元素高度',listheight.value.height);
-      
+      listheight.value.bodyheight = document.body.clientHeight - 200;  
       if (listheight.value.bodyheight < listheight.value.height) {
         if (!Commonly.value && item !== "Commonly" && !titlelist.some((item) => item.mate === useLeftList.name))  {
           Commonly.value = true;
-          calculation('Commonly')
         } else if (!application.value && item !== "application" && !applicationlist.some((item) => item.mate === useLeftList.name)) {
           application.value = true;
-          calculation('application')
         } else if (!automation.value && item !== "automation" && !automationlist.some((item) => item.mate === useLeftList.name)) {
           automation.value = true;
-          calculation('automation')
         } else if (!team.value && item !== "team" && !teamlist.some((item) => item.mate === useLeftList.name)) {
           team.value = true;
-          calculation('team')
         } else if (!safety.value && item !== "safety") {
           safety.value = true;
-          calculation('safety')
         }
       }
     }
