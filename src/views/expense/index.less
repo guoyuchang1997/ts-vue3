@@ -1,0 +1,52 @@
+.expense {
+  height: 100%;
+  // padding: 20px;
+  background: #f6f6f6;
+  .layout-box {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    .layout-box-left {
+      min-width: 168px;
+      margin-right: 10px;
+      padding: 18px 15px;
+      background: #fff;
+      ul {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 29px;
+          font-size: 14px;
+          cursor: pointer;
+          div {
+            display: flex;
+            align-items: center;
+            img {
+              width: 16px;
+              height: 16px;
+              margin-right: 10px;
+            }
+          }
+          i {
+            transform: rotate(-90deg);
+          }
+          &:hover {
+            color: #2b53e5;
+          }
+        }
+        .active {
+          color: #2b53e5;
+        }
+      }
+    }
+    .layout-box-right {
+      width: 100%;
+      background: #fff;
+      overflow: hidden;
+    }
+    .layout-box-right-padding{
+      padding: 20px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<!-- 仿真输入 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YunLogin窗口同步操作 仿真输入</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/window.css" />
+    <link rel="stylesheet" href="./css/simulationInput.css" />
+  </head>
+  <body>
+    <div class="window-2">
+      <!-- 窗口标题 -->
+      <div class="window-title">
+        <h1>仿真输入</h1>
+        <img src="./img/icon-off.png" alt="" />
+      </div>
+      <main>
+        <!-- 提示 -->
+        <div class="tip">
+          <div class="l">
+            <img src="./img/icon-tip.webp" alt="" />
+          </div>
+          <div class="r">
+            <p>1、输入前，请先在主控窗口将鼠标聚焦到输入框</p>
+            <p
+              >2、字符会以0.1～0.3秒的间隔同步输入至窗口输入框内。如需更改键入速度，请停止同步后
+              前往设置页面修改【字符输入间隔】</p
+            >
+          </div>
+        </div>
+        <!-- 标签页 -->
+        <div class="tab">
+          <div class="l">
+            <ul>
+              <li>相同文本</li>
+              <li>差异文本</li>
+              <li>随机数字</li>
+            </ul>
+          </div>
+          <div class="r">
+            <button>
+              <img src="./img/icon-ai.webp" alt="" />
+              <span>AI生成</span>
+            </button>
+          </div>
+        </div>
+        <!-- 表单内容 -->
+        <div class="container"> </div>
+      </main>
+      <!-- 窗口底部 -->
+      <div class="window-bottom">
+        <div class="window-bottom-r">
+          <button class="cancel">取消</button>
+          <button class="input">输入</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

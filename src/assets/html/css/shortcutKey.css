@@ -1,0 +1,80 @@
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 440px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 14px;
+}
+.window-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+.window-title img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+main {
+}
+main .container {
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px 0;
+}
+main .container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px 0;
+}
+main .container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .container ul li span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3d3d3d;
+}
+main .container ul li input {
+  box-sizing: border-box;
+  width: 305px;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 7px 16px;
+  outline: none;
+}
+main .container ul li input::placeholder {
+  color: #999999;
+}
+.window-bottom {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+.window-bottom .window-bottom-r {
+  display: flex;
+}
+.window-bottom .window-bottom-r button {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.window-bottom .window-bottom-r .cancel {
+  border: 1px solid #2b53e5;
+  color: #2b53e5;
+}
+.window-bottom .window-bottom-r .input {
+  margin-left: 10px;
+  border: 1px solid #2b53e5;
+  background: #2b53e5;
+  color: #fff;
+}

@@ -1,0 +1,108 @@
+<!-- 窗口同步列表 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YunLogin窗口同步操作</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/window.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- 窗口 -->
+    <div class="window">
+      <!-- 窗口标题 -->
+      <div class="window-title">
+        <h1>YunLogin窗口同步操作</h1>
+        <div class="layout-r">
+          <!-- TODO：找UI切图  -->
+          <img src="./img/icon-keyboard.png" alt="" />
+          <img src="./img/icon-settings.png" alt="" />
+          <img src="./img/icon-assist.png" alt="" />
+          <img src="./img/icon-off.png" alt="" />
+        </div>
+      </div>
+      <!-- 表单 -->
+      <main>
+        <!-- 统计数据 -->
+        <div class="statistics"> 共4个环境，已选3个环境 </div>
+        <!-- 表头 -->
+        <div class="table-title">
+          <div class="table-title-item">
+            <input type="checkbox" name="all" id="all" />
+            <span>序号</span>
+          </div>
+          <div class="table-title-item">
+            <span>分组</span>
+          </div>
+          <div class="table-title-item">
+            <span>名称</span>
+          </div>
+          <div class="table-title-item">
+            <span>备注</span>
+          </div>
+          <div class="table-title-item">
+            <span>状态</span>
+          </div>
+          <div class="table-title-item">
+            <span>操作</span>
+          </div>
+        </div>
+        <div style="height: 340px; overflow: auto">
+          <!-- 表单元 实在不行cdn引入一个vue循环这段吧-->
+          <div class="table-content">
+            <!-- 序号 -->
+            <div class="table-content-item" style="display: flex; align-items: center">
+              <input type="checkbox" name="item1" id="item1" class="checkbox" />
+              <div class="share" style="display: flex; align-items: center">
+                <span>1</span>
+                <img
+                  style="width: 12px; height: 12px; margin-left: 5px; cursor: pointer"
+                  src="./img/icon-share.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- 分组 -->
+            <div class="table-content-item flex-c-c">
+              <span>未分组</span>
+            </div>
+            <!-- 名称 -->
+            <div class="table-content-item flex-c-c">
+              <img src="./img/icon-nameImg.png" alt="" style="width: 20px; height: 20px; margin-right: 5px" />
+              <span>未分组</span>
+            </div>
+            <!-- 备注 -->
+            <div class="table-content-item flex-c-c">
+              <span class="ellipsis">杭州辰链信息科寄</span>
+            </div>
+            <!-- 状态 -->
+            <div class="table-content-item flex-c-c">
+              <img src="./img/icon-master.png" alt="" style="width: 12px; height: 12px; margin-right: 4px" />
+              <span>主控</span>
+            </div>
+            <!-- 操作 -->
+            <div class="table-content-item flex-c-c hover">
+              <div class="hover-box">
+                <ul>
+                  <li>设为主控</li>
+                  <li>激活窗口</li>
+                  <li>关闭环境</li>
+                </ul>
+              </div>
+              <img src="./img/icon-more.png" alt="" style="width: 16px; height: 16px; cursor: pointer" />
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- 窗口底部 -->
+      <div class="window-bottom">
+        <button class="start-sync"> <img src="./img/icon-start.png" alt="" /> 开始同步</button>
+        <button class="add-windiw"> <img src="./img/icon-add.png" alt="" /> 添加窗口</button>
+      </div>
+    </div>
+    <script src="./js/lib/jquery-3.7.0.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

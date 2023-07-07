@@ -1,0 +1,111 @@
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 14px;
+}
+.window-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+.window-title img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+main {
+  width: 540px;
+}
+main .tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  margin-top: 15px;
+  margin-bottom: 11px;
+  border: 1px solid #c1d7ff;
+  border-radius: 4px;
+  background: #f1f6fe;
+  padding: 10px;
+}
+main .tip .l img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+main .tip .r {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+}
+main .tip .r p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 18px;
+}
+/* main .tab .r button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+main .tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .tab .r button {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  background: #fff;
+  color: #2d5aff;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #2d5aff;
+  cursor: pointer;
+}
+main .tab .r button img {
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+}
+
+main .l ul {
+  display: flex;
+  align-items: center;
+}
+main .r main .container {
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px 0;
+}
+
+.window-bottom {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+.window-bottom .window-bottom-r {
+  display: flex;
+}
+.window-bottom .window-bottom-r button {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.window-bottom .window-bottom-r .cancel {
+  border: 1px solid #2b53e5;
+  color: #2b53e5;
+}
+.window-bottom .window-bottom-r .input {
+  margin-left: 10px;
+  border: 1px solid #2b53e5;
+  background: #2b53e5;
+  color: #fff;
+}

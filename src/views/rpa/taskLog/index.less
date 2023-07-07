@@ -1,0 +1,164 @@
+.task-log {
+  height: 100%;
+
+  .filter {
+    padding-bottom: 10px;
+    background-color: #f6f6f6;
+    display: flex;
+    gap: 0 10px;
+
+    .filter-item {
+      .label {
+        font-size: 14px;
+        font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+        font-weight: 400;
+        color: #333333;
+      }
+
+      :deep(.el-select) {
+        .el-input__wrapper {
+          box-shadow: none;
+
+          &:hover {
+            box-shadow: none;
+          }
+
+          .el-input__inner {
+            &::placeholder {
+              font-size: 12px;
+              font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+              font-weight: 400;
+              color: #333333;
+            }
+          }
+        }
+      }
+
+      .search-box {
+        width: 410px;
+        height: 40px;
+        background: @tcolor;
+        border-radius: 6px;
+        padding: 0 30px;
+        position: relative;
+
+        :deep(.el-input__wrapper) {
+          padding: 0 0 0 6px;
+          box-shadow: none;
+
+          .el-input__inner::placeholder {
+            color: #999999;
+          }
+        }
+
+        .iconfont {
+          position: absolute;
+        }
+
+        .icon-sousuo {
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+        }
+
+        .icon-a-23 {
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: 10px 15px;
+    height: calc(100% - 50px);
+
+    :deep(.custom-table-row) {
+      height: 84px;
+
+      .el-button.is-link {
+        font-size: 14px;
+        font-family: Source Han Sans CN-Normal, Source Han Sans CN;
+        font-weight: 350;
+        color: @fontactive;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .task-log-detail {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #EEEEEE;
+      padding-bottom: 14px;
+      margin-bottom: 15px;
+
+      h1 {
+        font-size: 20px;
+        font-family: Source Han Sans CN-Medium, Source Han Sans CN;
+        font-weight: 500;
+        color: #333333;
+        line-height: 29px;
+      }
+
+      .iconfont.icon-close2 {
+        color: #333333;
+        font-weight: bold;
+      }
+    }
+
+    .content {
+      ul {
+        li {
+          margin-bottom: 10px;
+          display: flex;
+
+          .date {
+            font-size: 14px;
+            font-family: Source Han Sans CN-Normal, Source Han Sans CN;
+            font-weight: 350;
+            color: #999999;
+            line-height: 21px;
+            flex-shrink: 0;
+          }
+
+          .value {
+            font-size: 14px;
+            font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+            font-weight: 400;
+            color: #333333;
+            line-height: 21px;
+
+            span.primary {
+              color: @fontactive;
+              text-decoration: underline;
+            }
+
+            span.error {
+              color: #ff0000;
+            }
+
+            .icon-a-gantanhao1 {
+              color: #ff0000;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      .el-button {
+        width: 101px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+        font-weight: 400;
+      }
+    }
+  }
+}

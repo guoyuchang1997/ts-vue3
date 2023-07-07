@@ -1,0 +1,145 @@
+/* 标题 */
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 560px;
+}
+.window-title h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
+}
+.window-title .layout-r {
+  display: flex;
+  gap: 0 20px;
+}
+.window-title .layout-r img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+}
+/* 主要内容 */
+main {
+  width: 560px;
+  height: 451px;
+  padding: 15px;
+  background: #fff;
+}
+/* 统计数据 */
+main .statistics {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #2d5aff;
+  border: 1px solid #c1d7ff;
+  border-radius: 4px 4px 4px 4px;
+  background: #f1f6fe;
+}
+/* 表头 */
+main .table-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  background: #fbfbfc;
+}
+main .table-title .table-title-item {
+  width: 65px;
+  font-size: 14px;
+  text-align: center;
+  color: #999999;
+}
+main .table-title .table-title-item:first-child {
+  display: flex;
+  align-items: center;
+}
+main .table-title .table-title-item:first-child input {
+  margin-right: 15px;
+}
+/* 表单元 */
+main .table-content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+  padding: 19px 10px;
+  /* height: 100%; */
+}
+
+main .table-content .table-content-item {
+  position: relative;
+  width: 65px;
+  font-size: 12px;
+}
+
+main .table-content .table-content-item .checkbox {
+  margin-right: 15px;
+}
+
+main .table-content .table-content-item .checkbox {
+  margin-right: 15px;
+}
+main .table-content .hover:hover .hover-box {
+  display: block;
+}
+
+main .table-content .hover .hover-box {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -55px;
+  padding-right: 20px;
+  z-index: 500px;
+}
+main .table-content .hover .hover-box ul {
+  width: 72px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+main .table-content .hover .hover-box ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+main .table-content .hover .hover-box ul li:hover {
+  color: #2b53e5;
+}
+
+/* 底部窗口 */
+.window-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 560px;
+  margin-top: 20px;
+}
+.window-bottom button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  width: 275px;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.window-bottom img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.window-bottom .start-sync {
+  background: #2d5aff;
+  color: #fff;
+}
+
+.window-bottom .add-windiw {
+  border: 1px solid #cad8ff;
+  color: #386bf3;
+  background: #fff;
+}

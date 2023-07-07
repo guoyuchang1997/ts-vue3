@@ -5,25 +5,25 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   }
 }
-// @font-face {
-//   font-family: 'Source Han Sans CN-Bold';
-//   src: url('~/assets/font/SourceHanSansCN-Bold.otf') format('opentype');
-// }
+ @font-face {
+   font-family: 'Source Han Sans CN-Bold';
+   src: url('@/assets/font/SourceHanSansCN-Bold.otf') format('opentype');
+ }
 
-// @font-face {
-//   font-family: 'Source Han Sans CN-Normal';
-//   src: url('~/assets/font/SourceHanSansCN-Normal.otf') format('opentype');
-// }
+ @font-face {
+   font-family: 'Source Han Sans CN-Normal';
+   src: url('@/assets/font/SourceHanSansCN-Normal.otf') format('opentype');
+ }
 
-// @font-face {
-//   font-family: 'Source Han Sans CN-Medium';
-//   src: url('~/assets/font/SourceHanSansCN-Medium.otf') format('opentype');
-// }
+ @font-face {
+   font-family: 'Source Han Sans CN-Medium';
+   src: url('@/assets/font/SourceHanSansCN-Medium.otf') format('opentype');
+ }
 
-// @font-face {
-//   font-family: 'Source Han Sans CN-Regular';
-//   src: url('~/assets/font/SourceHanSansCN-Regular.otf') format('opentype');
-// }
+ @font-face {
+   font-family: 'Source Han Sans CN-Regular';
+   src: url('@/assets/font/SourceHanSansCN-Regular.otf') format('opentype');
+ }
 .pointer {
   cursor: pointer;
 }
@@ -58,6 +58,10 @@
   font-weight: 400;
   transform-origin: left center;
 }
+.fs-22 {
+  font-size: @font-size-22;
+  font-weight: 400;
+}
 .fs-24 {
   font-size: @font-size-24;
   font-weight: 400;
@@ -85,4 +89,10 @@
 .fs-52 {
   font-size: @font-size-52;
   font-weight: 400;
+}
+.font-color {
+  color: @fontactive;
+}
+.font-hs {
+  color: @scolor;
 }

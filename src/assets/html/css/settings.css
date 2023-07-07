@@ -1,0 +1,140 @@
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 440px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 14px;
+}
+.window-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+.window-title img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+main {
+  width: 440px;
+}
+main h1 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  line-height: 21px;
+}
+main .lable {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+main .lable .title {
+  /* 禁止换行 */
+  white-space: nowrap;
+}
+main .lable .switch-button {
+  width: 120px;
+  /* height: 28px; */
+  border: 1px solid #2d5aff;
+  border-radius: 4px 4px 4px 4px;
+}
+main .lable .switch-button div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 28px;
+  font-size: 12px;
+  color: #2d5aff;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+main .lable .switch-button .active {
+  background: #2d5aff;
+  color: #fff;
+}
+
+main .lable .switch-button {
+  display: flex;
+}
+main .lable .multiple-choice {
+  display: flex;
+}
+main .lable .input-box .input-box-t {
+  display: flex;
+  align-items: center;
+}
+main .lable .input-box .input-box-b {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+}
+main .lable .input-box .input-box-t input {
+  box-sizing: border-box;
+  width: 60px;
+  height: 30px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  padding: 6px 6px;
+  color: #999999;
+  text-align: center;
+  outline: none;
+}
+main .lable .input-box .input-box-t i {
+  font-size: 12px;
+  color: #999999;
+  margin: 0 5px;
+}
+
+.window-bottom {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  width: 440px;
+}
+.window-bottom .window-bottom-r {
+  display: flex;
+}
+.window-bottom .window-bottom-r button {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.window-bottom .window-bottom-r .cancel {
+  border: 1px solid #2b53e5;
+  color: #2b53e5;
+}
+.window-bottom .window-bottom-r .input {
+  margin-left: 10px;
+  border: 1px solid #2b53e5;
+  background: #2b53e5;
+  color: #fff;
+}
+
+.line {
+  margin-top: 20px;
+  width: 100%;
+  height: 1px;
+  background: #eeeeee;
+}
+
+.multiple-choice-item {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.multiple-choice-item span {
+  font-size: 14px;
+}

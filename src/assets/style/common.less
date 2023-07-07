@@ -9,8 +9,9 @@ html {
 }
 body {
   color: #333;
-  font: 1em/1.4 "Microsoft Yahei", "PingFang SC", "Avenir", "Segoe UI", "Hiragino Sans GB",
-    "STHeiti", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  // font: 1em/1.4 'Microsoft Yahei', 'PingFang SC', 'Avenir', 'Segoe UI', 'Hiragino Sans GB', 'STHeiti',
+  //   'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+  font-family: Source Han Sans CN-Regular, Source Han Sans CN, Arial, Helvetica, sans-serif, 'Microsoft Yahei';
 }
 
 ul,
@@ -32,12 +33,17 @@ a {
 
 i {
   font-style: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 }
 
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="checkbox"] {
+input[type='text'],
+input[type='search'],
+input[type='password'],
+input[type='checkbox'] {
   padding: 0;
   outline: none;
   border: none;
@@ -95,14 +101,17 @@ ul {
 }
 
 .clearfix:after {
-  content: ".";
+  content: '.';
   display: block;
   visibility: hidden;
   height: 0;
   line-height: 0;
   clear: both;
 }
-
+.flex {
+  display: flex;
+  align-items: center;
+}
 @keyframes shan {
   0% {
     left: -100%;
@@ -145,4 +154,129 @@ ul {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+// 重置button样式
+.resetting-btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+// 搜索按钮样式
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  width: 104px;
+  height: 40px;
+  background: #2b53e5 !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  background: none;
+  cursor: pointer;
+}
+
+// 重置按钮样式
+.reset-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 40px;
+  background: #f6f6f6 !important;
+  border: 1px solid #2b53e5;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2b53e5;
+  background: none;
+  cursor: pointer;
+}
+
+// 文本超出部分隐藏
+.hidden-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background-color: #edeff6;
+  border-radius: 32px;
+}
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  /* 对应纵向滚动条的宽度 */
+  width: 8px;
+  /* 对应横向滚动条的宽度 */
+  height: 8px;
+}
+
+/* 滚动条上的滚动滑块 */
+::-webkit-scrollbar-thumb {
+  background-color: #d8dbe5;
+  border-radius: 32px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background-color: #edeff6;
+  border-radius: 32px;
+}
+
+// 重写el弹出框样式
+.el-dialog {
+  border-radius: 16px !important;
+  padding: 30px 30px 20px 30px!important;
+  box-shadow: 0px 0px 10px 0px rgba(48, 83, 228, 0.2);
+  .el-dialog__header {
+    margin: 0;
+    margin-top: 10px;
+    border-bottom: none !important;
+    padding: 0px !important;
+    .el-dialog__title {
+      color: #333;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+  .el-dialog__body {
+    padding: 0px !important;
+  }
+}
+// 选择框
+.checker {
+  cursor: pointer;
+  line-height: 20px;
+  &:hover {
+    > span:not(.active) {
+      background: rgba(#2b53e5, 0.15);
+      box-shadow: 0 0 4px rgba(#2b53e5, 0.2);
+    }
+  }
+
+  > span {
+    width: 14px;
+    height: 14px;
+    display: block;
+    border-radius: 4px 4px 4px 4px;
+    opacity: 1;
+    border: 1px solid rgba(43, 83, 229, 0.5);
+    margin: auto;
+    &.active {
+      background: #2b53e5;
+      box-shadow: inset 0 0 0 1px #fff;
+    }
+  }
+}
+.fontclolricon{
+  color: @fontcolor;
 }

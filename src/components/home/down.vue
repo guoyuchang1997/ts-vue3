@@ -1,39 +1,55 @@
 <template>
-  <div class="down pointer" :class="{active:props.titlelist.some((item) => item.mate === useLeftList.name)}" @click="emit('openoff')">
+  <div class="down pointer" :class="{ active: props.titlelist.some(item => item.mate === useLeftList.name) }"
+    @click="emit('openoff')">
     <i class="iconfont fs-xss" :class="props.headline.headline"></i>
     <div class="text fs-sm">{{ props.headline.title }}</div>
-    <i
-      class="iconfont icon-xialajiantou"
-      :class="{ xialajiantou: isshwo, xialajiantous: !isshwo }"
-    ></i>
+    <img src="@/assets/img/account/gengduo.webp" class="jiatou" :class="{ xialajiantou: isshwo, xialajiantous: !isshwo }"
+      alt="" />
   </div>
   <div id="height" ref="height" :class="{ conten: isshwo, contenopen: !isshwo }">
-    <div
-      class="downlist pointer "
-      :class="{active:useLeftList.name === item.mate}"
-      v-for="(item, index) in props.titlelist"
-      :key="index"
-      @click="gorouter(item)"
-    >
-      <i class="iconfont fs-lg" :class="item.icon"></i>
-      <div class="text fs-sm">
-        {{ item.text }}
+    <template v-for="(item, index) in props.titlelist" :key="index">
+      <div class="downlist pointer" :class="{ active: useLeftList.name === item.mate }" @click="gorouter(item)">
+        <i class="iconfont fs-lg" v-if="item.icon !== 'icon-a-tongbu1'" :class="item.icon"></i>
+        <chuangkou v-else class="svgceshi" />
+        <div class="text fs-sm">
+          {{ item.text }}
+        </div>
+        <!-- 可以直接补充icon图标 -->
       </div>
-      <!-- 可以直接补充icon图标 -->
-    </div>
+      <threenest v-if="item.children" :titlelist="item.children[1]" :headline="item.children[0]" :isshwo="Commonly"
+        @openoff="Commonlyoff(item.children[1].length)" />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Title, Icon } from "~/home/title";
-import router from "@/router/index.js";
-import useStore from '@/store/index.js'
+import { ref, onMounted } from 'vue'
+import { Title, Icon } from '~/home/title'
+import router from '@/router/index'
+import useStore from '@/store/index'
+import threenest from '~/home/threenest.vue'
+import chuangkou from '@/assets/img/account/tongbu-1.svg'
+
+/**
+ * 判断是否含有子集
+ */
+const isshowchildren = ref<number>(0)
+onMounted(() => {
+  isshowchildren.value = props.titlelist.filter(item => item.hasOwnProperty('children'))
+  getheight()
+})
 /**
  * 点击状态
  */
-const {useLeftList}  = useStore()
+const { useLeftList } = useStore()
+/**
+ * 路由跳转
+ * @param item 路由跳转
+ */
 const gorouter = (item: any) => {
   useLeftList.changemate(item.mate)
+  useLeftList.changeCurrentname(item.name)
+  if (item.mate === 'Quickstart') return
   router.push({
     path: item.router,
     // name: 'home',
@@ -43,13 +59,13 @@ const gorouter = (item: any) => {
     // 参数接受
     // const route = useRoute()
     // console.log(route.query)
-  });
-};
+  })
+}
 
 /**
  * 展开下拉
  */
-const emit = defineEmits(["openoff"]);
+const emit = defineEmits(['openoff'])
 
 /**
  * 元素高度
@@ -58,98 +74,162 @@ interface Height {
   /**
    * 高度
    */
-  clientHeight: string;
+  clientHeight: string
 }
-const height = ref<Height>();
-const listheight = ref({
-  height: "",
-});
-onMounted(() => {
-  getheight();
-});
-const getheight = () => {
-  // 直接给false会导致高度为0,需要父组件异步传递false
-  if (height.value) {
-    listheight.value.height = `${height.value.clientHeight}px`;
-  }
-};
-
 interface Iprops {
   /**
    * 列表
    */
-  titlelist: Title[];
+  titlelist: Title[]
   /**
    * 展开
    */
-  isshwo: Boolean;
+  isshwo: Boolean
   /**
    * 列表标题
    */
-  headline: Icon;
+  headline: Icon
 }
-const props = defineProps<Iprops>();
+const props = defineProps<Iprops>()
+const height = ref<Height>()
+const listheight = ref({
+  height: '',
+})
+
+/**
+ * 高度计算
+ */
+const getheight = () => {
+  if (height.value) {
+    listheight.value.height = `${35 * props.titlelist.length}px`
+  }
+  // 判断是否含有三级列表
+  if (height.value && isshowchildren.value) {
+    listheight.value.height = `${35 * (props.titlelist.length + isshowchildren.value.length)}px`
+  }
+}
+
+const Commonly = ref<boolean>(true)
+/**
+ * 高度
+ * @param leng 子集数量
+ */
+const Commonlyoff = (leng: number) => {
+  Commonly.value = !Commonly.value
+  if (!Commonly.value) {
+    /**
+     * 设置高度加上所有含有子集
+     */
+    listheight.value.height = `${35 * (leng + props.titlelist.length + isshowchildren.value.length)}px`
+  } else {
+    /**
+     * 父级数据的子集高度
+     */
+    listheight.value.height = `${35 * (props.titlelist.length + isshowchildren.value.length)}px`
+  }
+}
 </script>
 
 <style scoped lang="less">
+.svgceshi {
+  width: 16px;
+  height: 16px;
+  fill: #333;
+}
+
 .conten {
   height: 0;
   overflow: hidden;
   transition: all 0.3s;
+
 }
+
+
+
 .contenopen {
-  height: v-bind("listheight.height");
+  height: v-bind('listheight.height');
   overflow: hidden;
   transition: all 0.3s;
+
+
 }
+
+
+
 .down {
-  width: 220px;
+  width: 215px;
   display: flex;
-  height: 45px;
+  height: 35px;
   align-items: center;
   padding-left: 10px;
   padding-right: 20px;
+  margin-left: 6px;
+
   .text {
     width: 80%;
   }
+
   i:first-child {
     padding-right: 10px;
   }
-  &.active{
-    color: #2b53e5;
+
+  &.active {
+    color: @fontcolor;
   }
 }
+
 .down:hover {
-  color: #2b53e5;
+  color: @fontcolor;
 }
+
 .xialajiantou {
   transform: rotate(0deg);
   transition: transform 0.3s;
 }
+
+.jiatou {
+  width: 7px;
+  height: 4px;
+  margin-left: 12px;
+}
+
 .xialajiantous {
   transform: rotate(-90deg);
   transition: transform 0.3s;
 }
+
 .downlist {
-  width: 220px;
+  width: 189px;
   display: flex;
-  padding-left: 50px;
-  height: 45px;
+  padding-left: 30px;
+  height: 35px;
   align-items: center;
+  margin-left: 14px;
+
   .text {
-    margin: 0 14px;
+    margin: 0 10px;
   }
+
   &.active {
-    color: #fff !important;
-    background: #2d5aff !important;
+    color: @tcolor !important;
+    background: @fontactive !important;
     box-shadow: 0px 4px 10px 0px rgba(59, 59, 59, 0.2);
     border-radius: 8px 8px 8px 8px;
+
+    .svgceshi {
+      fill: #fff;
+    }
   }
 }
+
 .downlist:hover {
   background: #e9edfc;
   border-radius: 8px 8px 8px 8px;
-  color: #2b53e5;
+  color: @fontcolor;
   transition: all 0.2s;
+
+  .svgceshi {
+    fill: @fontcolor;
+  }
 }
 </style>

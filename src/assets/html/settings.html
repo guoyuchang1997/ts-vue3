@@ -1,0 +1,99 @@
+<!-- 设置 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YunLogin窗口同步操作 设置</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/window.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+  </head>
+  <body>
+    <div class="window-2">
+      <!-- 窗口标题 -->
+      <div class="window-title">
+        <h1>设置</h1>
+        <img src="./img/icon-off.png" alt="" />
+      </div>
+      <main>
+        <!-- 表单内容 -->
+        <div class="container">
+          <!-- 同步开关 -->
+          <div class="container-1">
+            <h1>同步开关</h1>
+            <!-- 同步键盘输入 -->
+            <div class="lable" style="margin-top: 12px">
+              <span class="title">同步键盘输入：</span>
+              <div class="switch-button">
+                <!-- TODO:使用active类去切换焦点 -->
+                <div class="active">开启</div>
+                <div>关闭</div>
+              </div>
+            </div>
+            <!-- 同步鼠标事件 -->
+            <div class="lable">
+              <span class="title">同步鼠标事件：</span>
+              <div class="multiple-choice-box">
+                <div class="multiple-choice">
+                  <div class="multiple-choice-item">
+                    <input type="checkbox" name="" id="" />
+                    <span>点击</span>
+                  </div>
+                  <div class="multiple-choice-item">
+                    <input type="checkbox" name="" id="" />
+                    <span>滚动</span>
+                  </div>
+                  <div class="multiple-choice-item">
+                    <input type="checkbox" name="" id="" />
+                    <span>轨迹</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 横线标签 -->
+            <div class="line" />
+          </div>
+          <!-- 仿真输入 -->
+          <div class="container-2">
+            <h1>仿真输入</h1>
+            <!-- 字符输入间隔输入框组 -->
+            <div class="lable" style="align-items: start">
+              <span class="title" style="display: inline-block; height: 30px; line-height: 30px">字符输入间隔：</span>
+              <div class="input-box">
+                <div class="input-box-t">
+                  <input type="text" />
+                  <i>至</i>
+                  <input type="text" />
+                  <i>秒</i>
+                </div>
+                <div class="input-box-b">数值越小，输入越快</div>
+              </div>
+            </div>
+            <!-- 点击延迟间隔输入框组 -->
+            <div class="lable">
+              <span class="title">点击延迟间隔：</span>
+              <div class="input-box">
+                <div class="input-box-t">
+                  <input type="text" />
+                  <i>至</i>
+                  <input type="text" />
+                  <i>秒</i>
+                </div>
+              </div>
+            </div>
+            <!-- 横线标签 -->
+            <div class="line" />
+          </div>
+        </div>
+      </main>
+      <!-- 窗口底部 -->
+      <div class="window-bottom">
+        <div class="window-bottom-r">
+          <button class="cancel">取消</button>
+          <button class="input">输入</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

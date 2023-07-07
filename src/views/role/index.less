@@ -1,0 +1,210 @@
+.role {
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+.page-header {
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 0 20px;
+  margin-bottom: 10px;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .el-button--primary {
+      width: 104px;
+      height: 40px;
+      margin-right: 20px;
+      --el-button-border-color: #2b53e5;
+    }
+  }
+
+  .company-name {
+    font-size: 16px;
+    font-family: Source Han Sans CN-Medium, Source Han Sans CN;
+    font-weight: 500;
+    color: #333333;
+  }
+
+  .search-box {
+    width: 410px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid #cccccc;
+    position: relative;
+    padding-left: 31px;
+    padding-right: 28px;
+
+    .iconfont {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .icon-sousuo {
+      left: 10px;
+    }
+
+    .icon-a-23 {
+      right: 12px;
+    }
+
+    :deep(.el-input) {
+      height: 38px;
+
+      .el-input__wrapper {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+:deep(.el-table__body-wrapper) {
+  .el-table__row {
+    height: 68px;
+  }
+}
+
+.page-content {
+  padding: 10px;
+  background-color: #fff;
+
+  //编辑
+  .edit-btn {
+    .delete-btn {
+      color: #ff0000;
+    }
+
+    .el-button+.el-button {
+      margin-left: 30px;
+    }
+  }
+
+  // 分页
+  .pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 27px 20px 17px 0;
+  }
+}
+
+:deep(.el-popper) {
+  max-width: 300px;
+}
+
+//删除角色
+.del-dialog {
+
+  //可以删除
+  .del-area {
+    padding-top: 30px;
+
+    .tips {
+      width: 740px;
+      height: 70px;
+      background: rgba(255, 0, 0, 0.05);
+      border-radius: 8px 8px 8px 8px;
+      opacity: 1;
+      border: 1px solid #ff0000;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+
+      .el-icon {
+        font-size: 15px;
+      }
+
+      .el-icon,
+      .red {
+        color: #ff0000;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  // 禁止删除
+  .prohibit-deletion {
+    padding-top: 30px;
+
+    .tips {
+      width: 740px;
+      padding: 20px;
+      background: rgba(255, 153, 0, 0.051);
+      border-radius: 8px;
+      border: 1px solid #ff9900;
+
+      .yellow {
+        color: #ff9900;
+        margin-bottom: 10px;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .guidance {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      line-height: 18px;
+      color: #999999;
+      padding-top: 10px;
+
+      span {
+        color: #333333;
+        position: relative;
+        padding-left: 20px;
+        margin-right: 10px;
+
+        &::before {
+          width: 6px;
+          height: 6px;
+          background: #2b53e5;
+          border-radius: 50%;
+          position: absolute;
+          left: 10px;
+          top: 6px;
+          content: '';
+        }
+      }
+    }
+  }
+
+  //按钮
+  .post-btn-box {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+
+    .el-button {
+      width: 80px;
+      height: 40px;
+
+      &.cancel {
+        color: #333;
+        border: 1px solid #333;
+      }
+    }
+
+    .el-button--primary {
+      width: 100px;
+
+      &.red {
+        background: #ff0000;
+        border-color: #ff0000;
+      }
+    }
+  }
+}

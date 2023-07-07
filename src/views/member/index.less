@@ -1,0 +1,498 @@
+.all-member {
+  width: 100%;
+  height: 100%;
+  background: @mlcolor;
+
+  .page-header {
+    height: 60px;
+    background: @tcolor;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .operational {
+      display: flex;
+      align-items: center;
+
+      .el-button {
+        width: 108px;
+        height: 40px;
+        border-radius: 8px;
+
+        .el-icon {
+          margin-left: 4px;
+          font-size: 12px;
+        }
+
+        &.el-button {
+          margin-left: 10px;
+        }
+      }
+
+      .el-button--primary {
+        background: #2D5AFF;
+        color: #fff;
+        --el-button-border-color: #2b53e5;
+      }
+
+      .invite {
+        border: 1px solid rgba(45, 90, 255, 0.302);
+        color: #2D5AFF;
+      }
+    }
+
+    .company-name {
+      font-size: 16px;
+      font-family: Source Han Sans CN-Medium, Source Han Sans CN;
+      font-weight: 500;
+      color: #333333;
+
+      span {
+        font-size: 14px;
+        font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+        font-weight: 400;
+      }
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+
+      .icon-menu {
+        margin-right: 20px;
+        font-size: 24px;
+      }
+
+      .input-wrapper {
+        width: 410px;
+        height: 40px;
+        background: #FFFFFF;
+        border-radius: 6px 6px 6px 6px;
+        border: 1px solid #CCCCCC;
+        position: relative;
+        padding-left: 31px;
+
+        :deep(.el-input) {
+          height: 38px;
+
+          .el-input__wrapper {
+            box-shadow: none;
+          }
+        }
+
+        .iconfont {
+          position: absolute;
+        }
+
+        .icon-sousuo {
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .icon-a-23 {
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  .page-content {
+    height: calc(100% - 70px);
+    display: flex;
+    gap: 0 10px;
+
+    .left-side {
+      width: 240px;
+      flex-shrink: 0;
+      height: 100%;
+      background-color: #FFFFFF;
+      // padding: 20px 15px 15px;
+      padding: 15px;
+      user-select: none;
+
+      .company-name {
+        margin-bottom: 15px;
+        display: flex;
+
+        svg {
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          margin-top: 2px;
+        }
+
+        span {
+          font-size: 14px;
+          font-family: Source Han Sans CN-Medium, Source Han Sans CN;
+          font-weight: 500;
+          color: #333333;
+          line-height: 20px;
+          flex: 1;
+        }
+      }
+
+      .organization-list {
+        .section {
+          padding-left: 11px;
+          font-size: 14px;
+          font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+          font-weight: 400;
+          color: #333333;
+          border-radius: 4px;
+          transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+          &.expanded {
+            .parent-title {
+              color: @fontactive
+            }
+          }
+
+          &.selected {
+            background: rgba(43, 83, 229, 0.1);
+
+            .parent-title {
+              color: @fontactive
+            }
+          }
+
+          .parent-title {
+            line-height: 40px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+            &:hover {
+              color: @fontactive;
+            }
+
+            .name {
+              margin: 0 5px 0 10px;
+            }
+          }
+
+          .children {
+            padding-left: 24px;
+
+            .child {
+              padding-left: 10px;
+              line-height: 30px;
+              cursor: pointer;
+              user-select: none;
+              transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+              border-radius: 4px;
+
+              &:hover {
+                color: @fontactive;
+              }
+
+              &.active {
+                color: @fontactive;
+                background: rgba(43, 83, 229, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .table-wrapper {
+      flex-grow: 1;
+      background-color: @cbcolor;
+      padding: 10px;
+
+      :deep(.el-table__body) {
+        .el-table__cell {
+          height: 84px;
+        }
+      }
+
+      :deep(.el-table__empty-block) {
+        display: none;
+      }
+
+      :deep(.el-table__inner-wrapper) {
+        &::before {
+          height: 0;
+        }
+      }
+
+      // 账号姓名
+      .name-wrapper {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 28px;
+          height: 28px;
+          margin-right: 7px;
+          border-radius: 4px;
+        }
+
+        .name {
+          font-size: 14px;
+          font-family: Source Han Sans CN-Normal, Source Han Sans CN;
+          font-weight: 350;
+
+          span {
+            color: #333333;
+            line-height: 20px;
+          }
+
+          p {
+            color: #999999;
+            line-height: 20px;
+          }
+        }
+      }
+
+      // 授权账号
+      .authorizedAccount {
+        color: @fontactive;
+      }
+
+      // 代理状态
+      .state {
+        &.default {
+          color: #333333;
+        }
+
+        &.fail {
+          color: #ff0000;
+        }
+      }
+
+      // 是否在线
+      .online-state {
+        --diabled-color: #cccccc;
+        --success-color: #40B01A;
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+
+        .point {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          display: block;
+          margin-right: 4px;
+        }
+
+        .online {
+          color: var(--success-color);
+
+          .point {
+            background: var(--success-color);
+          }
+        }
+
+        .offline {
+          color: var(--diabled-color);
+
+          .point {
+            background: var(--diabled-color);
+          }
+        }
+      }
+
+      // 最后登录时间
+      .last-login-time {
+        color: #999999;
+      }
+
+      // 操作
+      .action {
+        .link {
+          color: @fontactive;
+          cursor: pointer;
+        }
+      }
+
+      // 空状态
+      .empty {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 80px;
+
+        img {
+          width: 480px;
+        }
+      }
+
+      .pagination-wrapper {
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  :deep(.el-dialog) {
+    .el-dialog__header {
+      margin-top: 0;
+    }
+
+    .el-dialog__footer {
+      padding: 30px 0 10px 0;
+    }
+  }
+
+  .auth-account-dialog {
+    .dialog-header {
+      .title {
+        font-size: 20px;
+        font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+        font-weight: 400;
+        color: #333333;
+      }
+
+      .close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .dialog-body {
+      padding-top: 30px;
+
+      .select-info {
+        margin-bottom: 20px;
+        display: flex;
+
+        .item {
+          font-size: 14px;
+          font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+          font-weight: 400;
+          color: #333333;
+          line-height: 20px;
+        }
+
+        .line {
+          width: 1px;
+          height: 20px;
+          background-color: #333333;
+          margin: 0 30px;
+        }
+      }
+
+      .account-wrapper {
+        padding: 20px;
+        height: 350px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 5px 0px rgba(43, 83, 229, 0.2);
+        border-radius: 8px 8px 8px 8px;
+
+        h3 {
+          font-size: 14px;
+          font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+          font-weight: 400;
+          color: #333333;
+          line-height: 20px;
+          margin-bottom: 20px;
+        }
+
+        .filter {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 15px;
+
+          .search {
+            width: 240px;
+            height: 32px;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 5px 0px rgba(43, 83, 229, 0.2);
+            border-radius: 16px 16px 16px 16px;
+            position: relative;
+
+            input {
+              width: calc(100% - 48px);
+              height: 100%;
+              border: 0;
+              background-color: transparent;
+              padding: 0 15px;
+            }
+
+            .search-btn {
+              border: 0;
+              outline: none;
+              margin: 0;
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 48px;
+              height: 32px;
+              background: #2B53E5;
+              border-radius: 16px 16px 16px 16px;
+            }
+          }
+        }
+
+        .account-list {
+          height: calc(100% - 66px);
+
+          :deep(.el-table__header) {
+            height: 40px;
+
+            .el-table__cell {
+              background: rgba(43, 83, 229, 0.05);
+            }
+          }
+
+          :deep(.el-table__body) {
+            .el-table__cell {
+              height: 40px;
+            }
+          }
+
+          .name-info {
+            img {
+              width: 20px;
+              height: 20px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .btn {
+      border: 0;
+      outline: 0;
+      width: 80px;
+      height: 40px;
+      border-radius: 8px 8px 8px 8px;
+      font-size: 16px;
+      font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+      font-weight: 400;
+      border: 1px solid #333333;
+      cursor: pointer;
+
+      &.default {
+        border-radius: 8px 8px 8px 8px;
+        color: #333333;
+        background-color: transparent;
+        margin-right: 10px;
+      }
+
+      &.primary {
+        width: 100px;
+        background: #2B53E5;
+        color: #ffffff;
+        border-color: #2b53e5;
+      }
+    }
+  }
+}
