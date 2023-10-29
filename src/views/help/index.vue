@@ -10,17 +10,17 @@ const helpList = ref([
     children: [
       {
         id: 11,
-        title: "如何导入账号"
+        title: '如何导入账号',
       },
       {
         id: 12,
-        title: '入门常见问题'
+        title: '入门常见问题',
       },
       {
         id: 13,
-        title: '快速参与云登推广返现'
-      }
-    ]
+        title: '快速参与云登推广返现',
+      },
+    ],
   },
   {
     id: 2,
@@ -29,25 +29,25 @@ const helpList = ref([
     children: [
       {
         id: 21,
-        title: '代理网络服务资源'
+        title: '代理网络服务资源',
       },
       {
         id: 22,
-        title: 'Noproxy直连模式'
+        title: 'Noproxy直连模式',
       },
       {
         id: 23,
-        title: '代理配置'
+        title: '代理配置',
       },
       {
         id: 24,
-        title: 'HTTP/HTTPS/SOCKS5代理配置'
+        title: 'HTTP/HTTPS/SOCKS5代理配置',
       },
       {
         id: 25,
-        title: 'IPIDEA代理配置'
-      }
-    ]
+        title: 'IPIDEA代理配置',
+      },
+    ],
   },
   {
     id: 3,
@@ -56,17 +56,17 @@ const helpList = ref([
     children: [
       {
         id: 31,
-        title: '账号管理'
+        title: '账号管理',
       },
       {
         id: 32,
-        title: '新建浏览器'
+        title: '新建浏览器',
       },
       {
         id: 33,
-        title: '批量导入'
-      }
-    ]
+        title: '批量导入',
+      },
+    ],
   },
   {
     id: 4,
@@ -75,21 +75,21 @@ const helpList = ref([
     children: [
       {
         id: 41,
-        title: '应用中心'
+        title: '应用中心',
       },
       {
         id: 42,
-        title: '数据报表'
+        title: '数据报表',
       },
       {
         id: 43,
-        title: '插件上次应用中心'
+        title: '插件上次应用中心',
       },
       {
         id: 43,
-        title: '第三方插件'
-      }
-    ]
+        title: '第三方插件',
+      },
+    ],
   },
   {
     id: 5,
@@ -98,25 +98,25 @@ const helpList = ref([
     children: [
       {
         id: 51,
-        title: '自动化'
+        title: '自动化',
       },
       {
         id: 52,
-        title: 'RPA'
+        title: 'RPA',
       },
       {
         id: 53,
-        title: 'API'
+        title: 'API',
       },
       {
         id: 54,
-        title: ' 任务管理'
+        title: ' 任务管理',
       },
       {
         id: 55,
-        title: ' 素材管理'
-      }
-    ]
+        title: ' 素材管理',
+      },
+    ],
   },
   {
     id: 6,
@@ -125,17 +125,17 @@ const helpList = ref([
     children: [
       {
         id: 61,
-        title: '模板下载'
+        title: '模板下载',
       },
       {
         id: 62,
-        title: '批量导入'
+        title: '批量导入',
       },
       {
         id: 63,
-        title: 'BM地址导入模板'
-      }
-    ]
+        title: 'BM地址导入模板',
+      },
+    ],
   },
   {
     id: 7,
@@ -144,24 +144,25 @@ const helpList = ref([
     children: [
       {
         id: 71,
-        title: '常见问题'
+        title: '常见问题',
       },
       {
         id: 72,
-        title: '什么是指纹浏览器？'
+        title: '什么是指纹浏览器？',
       },
       {
         id: 73,
-        title: '如何检查本地网络环境？'
+        title: '如何检查本地网络环境？',
       },
       {
         id: 73,
-        title: '如何修改浏览器版本？'
-      }
-    ]
-  }
+        title: '如何修改浏览器版本？',
+      },
+    ],
+  },
 ])
 
+// eslint-disable-next-line require-jsdoc
 const handleSearch = () => {
   console.log(keyword.value)
 }
@@ -173,14 +174,14 @@ const handleSearch = () => {
       <p class="help-text">嗨！有什么需要帮忙的吗？</p>
       <div class="input-wrapper">
         <i class="iconfont icon-sousuo"></i>
-        <el-input v-model="keyword" placeholder="请输入你想搜索的问题" size="large" @keyup.enter="handleSearch"/>
+        <el-input v-model="keyword" placeholder="请输入你想搜索的问题" size="large" @keyup.enter="handleSearch" />
         <button class="search-btn" @click="handleSearch">搜索</button>
       </div>
     </div>
     <div class="help-list">
       <div v-for="item in helpList" :key="item.id" class="box">
         <div class="header">
-          <i :class="['iconfont',item.icon]"></i>
+          <i :class="['iconfont', item.icon]"></i>
           <span>{{ item.title }}</span>
         </div>
         <div class="content">
@@ -199,5 +200,5 @@ const handleSearch = () => {
 </template>
 
 <style lang="less" scoped>
-@import "index";
+@import 'index';
 </style>
