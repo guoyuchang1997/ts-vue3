@@ -230,6 +230,7 @@ const actions: { [key: string]: () => void } = {
 };
 const openoff = (data: string) => {
   if (actions[data]) {
+    debugger
     useDebounce(actions[data], 200)
   }
 };

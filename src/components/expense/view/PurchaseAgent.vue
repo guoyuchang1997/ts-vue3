@@ -292,6 +292,8 @@ const handleHotProxyChange = (current: number) => {
  * @param {number} current 当前代理值
  */
 const handleProxyAreaChange = (parent: number, current: number) => {
+  console.log('2222222',parent,current);
+  
   switch (parent) {
     case 1:
       proxyAreaState.type = current
